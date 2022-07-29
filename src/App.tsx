@@ -9,6 +9,7 @@ import Search from './components/Search/Search';
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
   const [search, setSearch] = useState<[string, string]>(['austin', 'texas'])
+  const [selectedBrewery, setSelectedBrewery] = useState<Brewery | null>(null)
 
   useEffect(() => {
     const fetchBreweries = async() => {
@@ -55,16 +56,19 @@ function App() {
   const handleNewSearch = (e: React.FormEvent<HTMLInputElement>, search: string) => {
     e.preventDefault();
     let [city, state] = search.split(',')
-    console.log(city, state)
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
+  }
+
+  const handleBreweryClick = (brewery: Brewery) => {
+    setSelectedBrewery(brewery)
   }
 
   return (
     <div className="app">
       <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
       <div className="brewery-info">
-        <BreweriesList listOfBreweries={listOfBreweries}/>
-        <BreweryDetails />
+        <BreweriesList listOfBreweries={listOfBreweries} handleBreweryClick={handleBreweryClick}/>
+        <BreweryDetails selectedBrewery={selectedBrewery}/>
       </div>
     </div>
   )

@@ -8,9 +8,9 @@ const typeColors = {
     brewpub: '#ffc425'
 }
 
-function BreweryListItem({brewery}) {
+function BreweryListItem({brewery, handleBreweryClick}) {
   return (
-    <li className="list-item">
+    <li className="list-item" onClick={() => handleBreweryClick(brewery)}>
         <h3 className="list-item-title">{brewery.name}</h3>
         <p className="list-item-type" style={{backgroundColor: `${typeColors[brewery.brewery_type]}`}}>{brewery.brewery_type}</p>
     </li>
