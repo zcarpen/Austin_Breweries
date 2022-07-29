@@ -64,7 +64,6 @@ function App() {
       <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
       <div className="brewery-info">
         <BreweriesList listOfBreweries={listOfBreweries}/>
-        <BreweryDetails />
       </div>
     </div>
   )
