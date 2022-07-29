@@ -1,5 +1,5 @@
 import './App.css'
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { fetchBreweries } from './helperFunctions'
 import {useEffect, useState} from 'react'
 
