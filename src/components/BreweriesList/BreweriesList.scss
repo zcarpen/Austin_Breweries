@@ -1,5 +1,23 @@
+@use '../../stylesConfig.scss' as styles;
+
 .breweries-list-container{
+    max-height: 100%;
     width: 30%;
-    background-color: #444;
-    color: #fff
+    background-color: styles.$text;
+    color: #fff;
+    // overflow: hidden;
+}
+
+.list {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 1rem;
+    padding: 0 2rem;
+    overflow: scroll;
+}
+
+.list-title {
+    color: styles.$background;
 }
