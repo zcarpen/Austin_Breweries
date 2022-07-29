@@ -1,23 +1,10 @@
 import './App.scss'
 import axios from 'axios';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
 import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
-
-type Brewery = {
-  street: string | null,
-  postal_code: string | null,
-  state: string | null,
-  country: string | null,
-  phone: string | null,
-  name: string | null,
-  website_url: string | null,
-  latitude: string | null,
-  longitude: string | null,
-  brewery_type: string | null,
-  id: string | null,
-}
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
