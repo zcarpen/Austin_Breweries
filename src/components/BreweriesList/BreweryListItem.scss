@@ -1,0 +1,26 @@
+@use '../../stylesConfig.scss' as styles;
+
+li {
+    display: flex;
+    background-color: styles.$listItem;
+    border-radius: 10px;
+    color: #000;
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item-title {
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: styles.$text;
+}
+
+.list-item-type {
+    border-radius: 10px;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.1rem;
+    // color: styles.$text;
+}
