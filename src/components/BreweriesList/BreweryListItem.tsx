@@ -1,4 +1,5 @@
 import './BreweryListItem.scss';
+import { Link } from 'react-router-dom';
 import { formatAddress } from '../../helperFunctions';
 import {BsArrowRight} from 'react-icons/bs'
 import {FiExternalLink} from 'react-icons/fi'
@@ -14,7 +15,7 @@ const typeColors = {
 }
 
 function BreweryListItem({brewery, cityState}) {
-  const {name, brewery_type, state, street, postal_code, website_url} = brewery;
+  const {name, brewery_type, state, street, postal_code, website_url, id} = brewery;
   const address = formatAddress(street, state, postal_code, cityState);
 
   return (
@@ -35,9 +36,9 @@ function BreweryListItem({brewery, cityState}) {
                 <span>{website_url}</span>
               </a> : 
               <div></div>}
-            <a>More Details 
+            <Link to={`/brewery-details?id=${id}`}>More Details 
               <BsArrowRight className="icon" />
-            </a>
+            </Link>
           </div>
         </div>
     </li>
