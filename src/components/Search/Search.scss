@@ -12,15 +12,15 @@
 
 .location {
     align-self: flex-start;
+    span {
+        text-decoration: underline;
+    }
 }
 
 .title {
     margin-top: 0;
     font-size: 3rem;
-}
-
-.current-search {
-    text-decoration: underline;
+    font-weight: styles.$very-bold;
 }
 
 .search-bar {
@@ -29,29 +29,28 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-}
 
-.search-label {
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-}
-.search-button {
-    border-radius: 10px;
-    padding: 0.25rem 1rem; 
-    font-size: 1.4rem;
-    color: styles.$secondary;
-    box-shadow: styles.$small-box-shadow;
+    label {
+        font-size: 1.4rem;
+        font-weight: styles.$bold;
+        letter-spacing: 0.1rem;
+    }
 
-}
-.search-input {
-    border-radius: 10px;
-    padding: 0.25rem 1rem;   
-    text-align: center;
-    font-size: 1.6rem;  
-    width: 50%;
-    color: styles.$secondary;
-    border: 1px solid styles.$secondary;
-    box-shadow: styles.$small-box-shadow;
-
+    input {
+        border-radius: 10px;
+        padding: 0.25rem 1rem;   
+        text-align: center;
+        font-size: 1.6rem;  
+        width: 50%;
+        color: styles.$secondary;
+        border: 1px solid styles.$secondary;
+        box-shadow: styles.$small-box-shadow;
+    }
+    button {
+        border-radius: 10px;
+        padding: 0.25rem 1rem; 
+        font-size: 1.4rem;
+        color: styles.$secondary;
+        box-shadow: styles.$small-box-shadow;
+    }
 }

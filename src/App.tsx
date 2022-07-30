@@ -1,8 +1,10 @@
-import './App.scss'
+import React, {useEffect, useState, Fragment} from 'react';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import './App.scss'
 import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
+import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
       try {
         const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
 
-        const newBreweries = result.data.reduce((breweries: Brewery[], brewery) => {
+        const newBreweries = result.data.reduce((breweries: Brewery[], brewery: Brewery) => {
           const {
             street,
             postal_code,
@@ -59,10 +61,17 @@ function App() {
 
   return (
     <div className="app">
-      <>
-        <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
-        <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
-      </>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <Fragment>
+              <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
+              <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
+            </Fragment>
+          }></Route>
+          <Route path="/brewery-details" element={<BreweryDetails />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
