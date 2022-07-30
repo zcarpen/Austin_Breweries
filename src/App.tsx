@@ -3,7 +3,6 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
-import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
 
 function App() {
@@ -55,17 +54,15 @@ function App() {
   const handleNewSearch = (e: React.FormEvent<HTMLInputElement>, search: string) => {
     e.preventDefault();
     let [city, state] = search.split(',')
-    console.log(city, state)
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
 
   return (
     <div className="app">
-      <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
-      <div className="brewery-info">
-        <BreweriesList listOfBreweries={listOfBreweries}/>
-        <BreweryDetails />
-      </div>
+      <>
+        <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
+        <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
+      </>
     </div>
   )
 }

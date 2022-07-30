@@ -16,3 +16,11 @@ export const formatCityState = (search: string[]) => {
 
   return capitolizedSearch
 }
+
+export const formatAddress = (street: string | null, state: string | null, zip: string | null, cityState: string[]) => {
+  const city = cityState[0].split('')[0].toUpperCase() + cityState[0].slice(1);
+  const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : '';
+  state = state ? state : cityState[1].split('')[0].toUpperCase() + cityState[1].slice(1);
+  
+  return `${street ? `${street.trim()},` : ''} ${city.trim()}, ${state.trim()}${formattedZip}`
+}
