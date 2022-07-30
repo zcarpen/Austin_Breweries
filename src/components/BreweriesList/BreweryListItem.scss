@@ -1,26 +1,70 @@
 @use '../../stylesConfig.scss' as styles;
 
-li {
-    display: flex;
-    background-color: styles.$listItem;
+.list-container {
     border-radius: 10px;
-    color: #000;
+    color: styles.$tertiary;
+    display: flex;
+    flex-direction: column;
+    background-color: styles.$secondary;
+    box-shadow: styles.$large-box-shadow
+}
+
+.brewery-title-type {
+    display: flex;
+    margin-bottom: 1rem;
     padding: 0 1rem;
     justify-content: space-between;
     align-items: center;
 }
 
-.list-item-title {
+.brewery-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:0 5% 5% 5%;
+    gap: 2rem;
+    font-size: 1.2rem;
+}
+
+
+.brewery-title {
     max-width: 70%;
+    font-size: 1.6rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: styles.$text;
+    color: styles.$tertiary;
 }
 
-.list-item-type {
+.brewery-type {
     border-radius: 10px;
     padding: 0.2rem 0.5rem;
     letter-spacing: 0.1rem;
-    // color: styles.$text;
+    font-weight: 600;
+    color: styles.$tertiary;
 }
+
+.brewery-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.website-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: styles.$tertiary
+}
+

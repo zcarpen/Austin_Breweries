@@ -63,7 +63,7 @@ function App() {
     <div className="app">
       <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
       <div className="brewery-info">
-        <BreweriesList listOfBreweries={listOfBreweries}/>
+        <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
       </div>
     </div>
   )
