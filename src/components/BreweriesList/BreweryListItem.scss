@@ -68,3 +68,10 @@
     color: styles.$tertiary
 }
 
+a {
+    &:hover {
+        cursor: pointer;
+        color: styles.$hover;
+    }
+}
+
