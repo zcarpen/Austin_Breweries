@@ -69,7 +69,7 @@ function App() {
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
           }></Route>
-          <Route path="/brewery-details" element={<BreweryDetails />}></Route>
+          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

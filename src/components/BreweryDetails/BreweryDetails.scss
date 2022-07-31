@@ -1,0 +1,101 @@
+@use '../../stylesConfig.scss' as styles;
+
+.general-info {
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    gap: 3rem;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30rem;
+    width: 100%;
+    background-color: #fff;
+}
+.card {
+    position: relative;
+    background-color: styles.$secondary;
+    box-shadow: styles.$large-box-shadow;
+    border-radius: 2rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.micro {
+    background-color: #d11141;
+}
+.contract {
+    background-color: #00b159;
+}
+.regional {
+    background-color: #00aedb;
+} 
+.planning {
+    background-color: #f37735;
+} 
+.brewpub {
+    background-color: #ffc425;
+} 
+
+.brewery-type {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    border-radius: 10px;
+    padding: 0.25rem 1rem;
+    font-size: 1.6rem;
+    color: styles.$secondary;
+}
+
+.back {
+    color: styles.$secondary;
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    border-radius: 10px;
+    padding: 0.25rem 1rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+    background-color: styles.$primary;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 1.6rem;
+    gap: 2rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        color: #fff;
+    }
+}
+
+.icon-container {
+    width: 15rem;
+    height: 15rem;
+}
+
+.contact-icon {
+    font-size: 15rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+}
