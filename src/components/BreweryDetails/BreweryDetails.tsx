@@ -53,8 +53,8 @@ function BreweryDetails({listOfBreweries, cityState}) {
               }
           </div>
         </div>
-        <div className="map-container">
-          <MapContainer style={{height: "100%", width: "100%"}} center={position} zoom={13} scrollWheelZoom={false}>
+        {latitude && longitude && <div className="map-container">
+          <MapContainer style={{height: "100%", width: "100%"}} center={position} zoom={10} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -65,7 +65,7 @@ function BreweryDetails({listOfBreweries, cityState}) {
               </Popup>
             </Marker>
           </MapContainer>
-        </div>
+        </div>}
       </div>
     </Fragment>
   )
