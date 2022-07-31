@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import {Fragment} from 'react'
 import { FiExternalLink } from 'react-icons/fi'
 import { MdLocationPin } from 'react-icons/md'
@@ -53,6 +54,17 @@ function BreweryDetails({listOfBreweries, cityState}) {
           </div>
         </div>
         <div className="map-container">
+          <MapContainer style={{height: "100%", width: "100%"}} center={position} zoom={13} scrollWheelZoom={false}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                {name}<br /> {address}
+              </Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
     </Fragment>
