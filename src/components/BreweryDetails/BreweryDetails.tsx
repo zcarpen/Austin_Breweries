@@ -19,7 +19,6 @@ function BreweryDetails({listOfBreweries, cityState}) {
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries.find(brewery => brewery.id === id)
   const position = [latitude, longitude];
   const address = formatAddress(street, state, postal_code, cityState);
-  console.log(address)
 
   return (
     <Fragment>
