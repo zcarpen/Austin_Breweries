@@ -14,10 +14,12 @@
         // gap: 2rem;
         list-style: none;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 50% 50%;
         gap: 2rem;
         padding: 0 2rem;
         overflow: scroll;
+        justify-content: center;
+        justify-items: inherit;
     }
 
     h3 {

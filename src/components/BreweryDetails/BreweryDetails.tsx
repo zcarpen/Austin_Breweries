@@ -5,7 +5,7 @@ import { FiExternalLink } from 'react-icons/fi'
 import { MdLocationPin } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
-import { formatAddress } from '../../helperFunctions'
+import { formatAddress, formatPhone } from '../../helperFunctions'
 import './BreweryDetails.scss'
 
 function BreweryDetails({listOfBreweries, cityState}) {
@@ -19,6 +19,7 @@ function BreweryDetails({listOfBreweries, cityState}) {
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries.find(brewery => brewery.id === id)
   const position = [latitude, longitude];
   const address = formatAddress(street, state, postal_code, cityState);
+  const formattedPhone = formatPhone(phone);
 
   return (
     <Fragment>
@@ -40,7 +41,7 @@ function BreweryDetails({listOfBreweries, cityState}) {
             {phone && 
               <a>
                 <BsTelephone/>
-                <span>{phone}</span>
+                <span>{formattedPhone}</span>
               </a>
             }
             {
