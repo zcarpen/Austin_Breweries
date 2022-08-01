@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Brewery } from '../types/brewery';
 
 export const formatCityState = (search: string[]) => {
   const [city, state] = search;
@@ -29,4 +30,36 @@ export const formatPhone = (phone: string | null) => {
   }
 
   return `(${sanitizedPhone.slice(0,3)}) ${sanitizedPhone.slice(3,6)}-${sanitizedPhone.slice(6)}`
+}
+
+export const formatNewBreweries = (breweries: Brewery[]) => {
+  return breweries.reduce((breweries: Brewery[], brewery: Brewery) => {
+    const {
+      street,
+      postal_code,
+      state,
+      country,
+      phone,
+      name,
+      website_url,
+      latitude,
+      longitude,
+      brewery_type,
+      id,
+    } = brewery
+    
+    return [...breweries, {
+      street, 
+      postal_code, 
+      state, 
+      country, 
+      phone, 
+      name, 
+      website_url, 
+      latitude, 
+      longitude, 
+      brewery_type, 
+      id
+    }]
+  }, [])
 }

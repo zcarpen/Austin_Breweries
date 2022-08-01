@@ -6,6 +6,7 @@ import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
 import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
+import { formatNewBreweries } from './helperFunctions/helperFunctions';
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
@@ -16,36 +17,9 @@ function App() {
     const fetchBreweries = async() => {
       try {
         const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
+        
+        const newBreweries = formatNewBreweries(result.data)
 
-        const newBreweries = result.data.reduce((breweries: Brewery[], brewery: Brewery) => {
-          const {
-            street,
-            postal_code,
-            state,
-            country,
-            phone,
-            name,
-            website_url,
-            latitude,
-            longitude,
-            brewery_type,
-            id,
-          } = brewery
-
-          return [...breweries, {
-            street, 
-            postal_code, 
-            state, 
-            country, 
-            phone, 
-            name, 
-            website_url, 
-            latitude, 
-            longitude, 
-            brewery_type, 
-            id
-          }]
-        }, [])
         setListOfBreweries(newBreweries)
         setIsLoading(false)
       } catch(err) {
