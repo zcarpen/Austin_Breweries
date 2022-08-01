@@ -3,12 +3,12 @@ import axios from 'axios';
 export const formatCityState = (search: string[]) => {
   const [city, state] = search;
   
-  const capitolizedSearch = [city.split('')[0].toUpperCase() + city.slice(1), state.split('')[0].toUpperCase() + state.slice(1)]
+  const capitolizedSearch = [city.split('')[0].toUpperCase() + city.slice(1).toLowerCase(), state.split('')[0].toUpperCase() + state.slice(1).toLowerCase()]
 
   return capitolizedSearch
 }
 
-const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1);
+export const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1);
 
 export const formatAddress = (street: string | null, state: string | null, zip: string | null, cityState: string[]) => {
   const city = capitalizeFirstLetter(cityState[0]);
@@ -16,13 +16,13 @@ export const formatAddress = (street: string | null, state: string | null, zip: 
 
   state = state || capitalizeFirstLetter(cityState[1])
   
-  return `${street ? `${street.trim()},` : ''} ${city.trim()}, ${state.trim()}${formattedZip}`
+  return `${street ? `${street.trim()}, ` : ''}${city.trim()}, ${state.trim()}${formattedZip}`
 }
 
-export const formatPhone = (phone: string) => {
+export const formatPhone = (phone: string | null) => {
   if (!phone) return ''
 
-  let sanitizedPhone = phone.replace(/\D+/g, '')
+  let sanitizedPhone = phone.replace(/\D+/g, '') //sanitizes phone number of special characters besides digits
 
   if (sanitizedPhone.length > 10) {
     sanitizedPhone = sanitizedPhone.slice(1)

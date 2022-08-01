@@ -1,7 +1,7 @@
+import { useState, FormEvent } from 'react';
+
 import './Search.scss';
-import React, { useState } from 'react';
-import { formatCityState } from '../../helperFunctions';
-import { MdSecurityUpdateWarning } from 'react-icons/md';
+import { formatCityState } from '../../helperFunctions/helperFunctions';
 
 function Search({currentSearch, handleNewSearch}: {currentSearch: string[], handleNewSearch: (search:string) => void}) {
     const [city, state] = formatCityState(currentSearch)
@@ -12,7 +12,7 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
         setSearch(e.target.value)
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       if (search.split(',').length !== 2) {
         setWarning(true)

@@ -1,15 +1,20 @@
+import {useState} from 'react';
+
 import './BreweriesList.scss';
 import BreweryListItem from './BreweryListItem';
 import SearchError from '../searchError/SearchError';
-import {MdSentimentSatisfied, MdSort} from 'react-icons/md';
-import {useState} from 'react';
+import { BLProps } from '../../types/breweryListProps';
 import { Brewery } from '../../types/brewery';
 
+import {MdSort} from 'react-icons/md';
 
-function BreweriesList({listOfBreweries, cityState}) {
+
+
+
+const BreweriesList = ({listOfBreweries, cityState}: BLProps) => {
 
   const [sorted, setSorted] = useState(false)
-  let sortedBreweries = sorted === true ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
+  let sortedBreweries: Brewery[] = sorted === true ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
   
   return (
     <div className="breweries-list-container">

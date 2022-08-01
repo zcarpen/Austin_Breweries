@@ -1,23 +1,29 @@
 import {Link} from 'react-router-dom'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import {Fragment} from 'react'
-import { FiExternalLink } from 'react-icons/fi'
-import { MdLocationPin } from 'react-icons/md'
-import { BsTelephone } from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
-import { formatAddress, formatPhone } from '../../helperFunctions'
-import './BreweryDetails.scss'
 
-function BreweryDetails({listOfBreweries, cityState}) {
-  // let params = useParams()
+import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
+import { LinkIcon, Pin, Phone } from '../IconHelper'
+import './BreweryDetails.scss'
+import { BDProps } from '../../types/breweryDetailsProps'
+
+
+
+
+
+function BreweryDetails({listOfBreweries, cityState, handleDetailLoad}: BDProps) {
   const queryParams = new URLSearchParams(window.location.search)
-  if (listOfBreweries.length === 0) {
-    console.log('need to fetch breweries')
-    return
-  }
   const id = queryParams.get("id")
-  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries.find(brewery => brewery.id === id)
-  const position = [latitude, longitude];
+  const cityStateParams: string[] | undefined = queryParams.get("cityState")?.split('-');
+
+  if (listOfBreweries.length === 0) {
+    handleDetailLoad(cityStateParams?.join(', '))
+  }
+
+  if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
+  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id)
+  const position: string[] = [latitude, longitude];
   const address = formatAddress(street, state, postal_code, cityState);
   const formattedPhone = formatPhone(phone);
 
@@ -33,21 +39,21 @@ function BreweryDetails({listOfBreweries, cityState}) {
           <div className="contact-details">
             <h1 className="ellipsis">{name}</h1>
             {address && 
-              <a className="ellipsis">
-                <MdLocationPin/>
+              <a className="ellipsis" target="_blank" href={`https://maps.google.com/?q=1200 ${address}`}>
+                <Pin/>
                 <span>{address}</span>
               </a>
             }
             {phone && 
-              <a className="ellipsis">
-                <BsTelephone/>
+              <a className="ellipsis" href={`tel:${formattedPhone}`}>
+                <Phone/>
                 <span>{formattedPhone}</span>
               </a>
             }
             {
             website_url && 
               <a className="ellipsis" target="_blank" href={website_url}>
-                <FiExternalLink/>
+                <LinkIcon/>
                 <span>{website_url}</span>
               </a>
               }

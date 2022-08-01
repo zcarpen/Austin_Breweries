@@ -11,6 +11,12 @@
     width: 100%;
     position: relative;
 
+    button {
+        &:hover {
+            background-color: styles.$hover;
+        }
+    }
+
     p {
         color: styles.$primary;
         font-weight: styles.$bold;

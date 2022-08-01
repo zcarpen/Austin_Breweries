@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Fragment} from 'react';
+import {useEffect, useState, Fragment} from 'react';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import './App.scss'
@@ -9,15 +9,14 @@ import Search from './components/Search/Search';
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState<[string, string]>(['austin', 'texas'])
 
   useEffect(() => {
     const fetchBreweries = async() => {
-      console.log(search[0], search[1])
       try {
         const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
 
-        console.log(result)
         const newBreweries = result.data.reduce((breweries: Brewery[], brewery: Brewery) => {
           const {
             street,
@@ -47,8 +46,8 @@ function App() {
             id
           }]
         }, [])
-        console.log(newBreweries)
         setListOfBreweries(newBreweries)
+        setIsLoading(false)
       } catch(err) {
         console.log(err)
       }
@@ -57,14 +56,22 @@ function App() {
   }, [search])
 
   const handleNewSearch = (search: string) => {
-    let [city, state] = search.split(',')
-    console.log(city, state)
+    const [city, state] = search.split(',')
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
 
+  const handleDetailLoad = (search: string | undefined) => {
+    const [city, state] = search?.split(',')
+    useEffect(() => {
+      setSearch([city.toLowerCase(), state.trim().toLowerCase()])
+    }, [])
+  }
+  
+
+  if (isLoading) return <div className="app loading">LOADING...</div>
   return (
     <div className="app">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={
             <Fragment>
@@ -72,9 +79,9 @@ function App() {
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
           }></Route>
-          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search}/>}></Route>
+          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} handleDetailLoad={handleDetailLoad}/>}></Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }
