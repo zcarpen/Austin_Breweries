@@ -58,7 +58,7 @@
 }
 
 
-@media (max-width: styles.$breakpoint-phone) {
+@media (max-width: styles.$breakpoint-tablet) {
     .breweries-list-container {
         ul {
             grid-template-columns: 80%;
@@ -71,7 +71,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: styles.$breakpoint-small-tablet) {
     .breweries-list-container {
         ul {
             grid-template-columns: 95%;

@@ -97,7 +97,7 @@
     display: flex;
 }
 
-@media (max-width: styles.$breakpoint-phone) {
+@media (max-width: styles.$breakpoint-tablet) {
     .brewery-details {
         a {
             font-size: 1.4rem;
@@ -108,7 +108,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: styles.$breakpoint-small-tablet) {
     .brewery-title-type {
         h3 {
             font-size: 1.4rem;
@@ -123,7 +123,7 @@
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: styles.$breakpoint-phone) {
     .brewery-title-type {
         h3 {
             font-size: 1.2rem;

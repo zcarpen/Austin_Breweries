@@ -31,22 +31,22 @@ function BreweryDetails({listOfBreweries, cityState}) {
             <FcContacts className="contact-icon"/>
           </div>
           <div className="contact-details">
-            <h1>{name}</h1>
+            <h1 className="ellipsis">{name}</h1>
             {address && 
-              <a>
+              <a className="ellipsis">
                 <MdLocationPin/>
                 <span>{address}</span>
               </a>
             }
             {phone && 
-              <a>
+              <a className="ellipsis">
                 <BsTelephone/>
                 <span>{formattedPhone}</span>
               </a>
             }
             {
             website_url && 
-              <a target="_blank" href={website_url}>
+              <a className="ellipsis" target="_blank" href={website_url}>
                 <FiExternalLink/>
                 <span>{website_url}</span>
               </a>

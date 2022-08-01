@@ -19,7 +19,7 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
 
         setTimeout(() => {
           setWarning(false)
-        }, 2000)
+        }, 2500)
         return;
       }
       handleNewSearch(search)
@@ -27,13 +27,16 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
 
   return (
     <div className="search">
-      <h2 className="location"><span>{`${city}, ${state}`}</span> Breweries</h2>
+      {warning ? 
+        <p>Be sure to use "city, state"</p> :
+        <h2 className="location"><span>{`${city}, ${state}`}</span> Breweries</h2>
+      }
       <h1 className="title">Find Breweries Near You!</h1>
       <form className="search-bar" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="search-bar-value">Search By City:</label>
         <input id="search-bar-value" placeholder="(City, State)" value={search} onChange={handleSearch}/>
         <button type="submit">Search</button>
-        {warning && <p>Be sure to use "city, state"</p>}
+        
       </form>
     </div>
   )
