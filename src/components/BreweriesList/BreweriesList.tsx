@@ -1,6 +1,6 @@
 import './BreweriesList.scss';
 import BreweryListItem from './BreweryListItem';
-import SearchError from '../SearchError/SearchError';
+import SearchError from '../searchError/SearchError';
 import {MdSentimentSatisfied, MdSort} from 'react-icons/md';
 import {useState} from 'react';
 import { Brewery } from '../../types/brewery';
