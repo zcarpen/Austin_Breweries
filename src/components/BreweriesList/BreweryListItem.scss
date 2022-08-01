@@ -38,7 +38,7 @@
     align-items: flex-start;
     padding:0 5% 5% 5%;
     gap: 2rem;
-    font-size: styles.$XS;
+    font-size: styles.$M;
     a {
         display: flex;
         align-items: center;
@@ -60,7 +60,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        max-width: 30rem;
+        max-width: 100%;
     }
     
 }
