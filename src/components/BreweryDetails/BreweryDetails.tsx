@@ -15,10 +15,10 @@ import { BDProps } from '../../types/breweryDetailsProps'
 function BreweryDetails({listOfBreweries, cityState, handleDetailLoad}: BDProps) {
   const queryParams = new URLSearchParams(window.location.search)
   const id = queryParams.get("id")
-  const cityStateParams: string[] | undefined = queryParams.get("cityState")?.split('-');
-
-  if (listOfBreweries.length === 0) {
-    handleDetailLoad(cityStateParams?.join(', '))
+  const cityStateParams = queryParams.get("cityState").split('-');
+  
+  if (cityStateParams[0] !== 'austin') {
+    handleDetailLoad(cityStateParams.join(', '))
   }
 
   if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
