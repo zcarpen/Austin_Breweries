@@ -15,7 +15,7 @@
     align-items: center;
     h3 {
         max-width: 60%;
-        font-size: 1.6rem;
+        font-size: styles.$M;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -32,29 +32,13 @@
         color: styles.$tertiary;
         background-color: #333;
     }
-    .micro {
-        background-color: #d11141;
-    }
-    .contract {
-        background-color: #00b159;
-    }
-    .regional {
-        background-color: #00aedb;
-    } 
-    .planning {
-        background-color: #f37735;
-    } 
-    .brewpub {
-        background-color: #ffc425;
-        color: styles.$secondary;
-    } 
 }
 
 .brewery-details {
     align-items: flex-start;
     padding:0 5% 5% 5%;
     gap: 2rem;
-    font-size: 1.2rem;
+    font-size: styles.$XS;
     a {
         display: flex;
         align-items: center;
@@ -100,7 +84,7 @@
 @media (max-width: styles.$breakpoint-tablet) {
     .brewery-details {
         a {
-            font-size: 1.4rem;
+            font-size: styles.$S;
             max-width: 60%;
         }
         
@@ -111,13 +95,13 @@
 @media (max-width: styles.$breakpoint-small-tablet) {
     .brewery-title-type {
         h3 {
-            font-size: 1.4rem;
+            font-size: styles.$S;
         }
     
     }
     .brewery-details {
         a {
-            font-size: 1.2rem;
+            font-size: styles.$XS;
         }
         
     }
@@ -126,7 +110,7 @@
 @media (max-width: styles.$breakpoint-phone) {
     .brewery-title-type {
         h3 {
-            font-size: 1.2rem;
+            font-size: styles.$XS;
         }
     
     }

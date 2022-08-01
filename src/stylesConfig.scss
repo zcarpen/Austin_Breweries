@@ -5,7 +5,13 @@ $tertiary: #b8f2e6;
 $hover: #ffa69e;
 $color5: #aed9e0;
 
+
 // Font-sizes:
+$XL: 3.2rem;
+$L: 2.4rem;
+$M: 1.6rem;
+$S: 1.4rem;
+$XS: 1.2rem;
 
 
 // Font-weights:
@@ -14,12 +20,11 @@ $very-bold: 700;
 
 
 // box-shadow:
-
 $small-box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 $large-box-shadow: 6px 6px 9px rgba(0,0,0,0.4);
 
-// media queries:
 
+// media queries:
 $breakpoint-tablet: 768px;
 $breakpoint-small-tablet: 600px;
 $breakpoint-phone: 450px;

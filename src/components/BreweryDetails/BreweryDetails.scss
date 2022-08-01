@@ -31,32 +31,20 @@
     padding: 2rem;
 }
 
+p {
+    margin: 0;
+}
+
 .brewery-type {
     position: absolute;
     top: 3%;
     right: 5%;
     border-radius: 10px;
     padding: 0.25rem 1rem;
-    font-size: 1.6rem;
+    font-size: styles.$M;
     color: styles.$tertiary;
     background-color: #333;
 }
-
-.micro {
-    background-color: #d11141;
-}
-.contract {
-    background-color: #00b159;
-}
-.regional {
-    background-color: #00aedb;
-} 
-.planning {
-    background-color: #f37735;
-} 
-.brewpub {
-    background-color: #ffc425;
-} 
 
 .back {
     color: styles.$secondary;
@@ -65,7 +53,7 @@
     left: 5%;
     border-radius: 10px;
     padding: 0.25rem 1rem;
-    font-size: 1.6rem;
+    font-size: styles.$M;
     text-decoration: none;
     background-color: styles.$primary;
 }
@@ -75,12 +63,12 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    font-size: 1.6rem;
+    font-size: styles.$M;
     gap: 2rem;
     overflow: hidden;
 
     h1 {
-        font-size: 3rem;
+        font-size: styles.$XL;
         margin: 0;
         text-align: start;
     }
@@ -114,10 +102,10 @@
 @media (max-width: styles.$breakpoint-tablet) {
     .contact-details {
         h1 {
-            font-size: 2.4rem;
+            font-size: styles.$L;
         }
         a {
-            font-size: 1.4rem;
+            font-size: styles.$S;
         }
     }
 }

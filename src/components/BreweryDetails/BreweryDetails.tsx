@@ -25,7 +25,7 @@ function BreweryDetails({listOfBreweries, cityState}) {
     <Fragment>
       <div className="card">
         <Link className="back" to="/">Back to breweries</Link>
-        <div className={`brewery-type ${brewery_type}`} >{brewery_type}</div>
+        <p className={`brewery-type ${brewery_type}`} >{brewery_type}</p>
         <div className="general-info">
           <div className="icon-container">
             <FcContacts className="contact-icon"/>
