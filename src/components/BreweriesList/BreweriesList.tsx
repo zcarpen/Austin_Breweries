@@ -1,8 +1,10 @@
+import {useState} from 'react';
+
 import './BreweriesList.scss';
 import BreweryListItem from './BreweryListItem';
 import SearchError from '../searchError/SearchError';
-import {MdSentimentSatisfied, MdSort} from 'react-icons/md';
-import {useState} from 'react';
+
+import {MdSort} from 'react-icons/md';
 import { Brewery } from '../../types/brewery';
 
 

@@ -1,29 +1,19 @@
-import './BreweryListItem.scss';
 import { Link } from 'react-router-dom';
-import { formatAddress } from '../../helperFunctions';
-import {BsArrowRight} from 'react-icons/bs'
-import {FiExternalLink} from 'react-icons/fi'
-import {MdLocationPin} from 'react-icons/md'
+
+import './BreweryListItem.scss';
+import { formatAddress } from '../../helperFunctions/helperFunctions';
+
+import { BsArrowRight } from 'react-icons/bs'
+import { FiExternalLink } from 'react-icons/fi'
+import { MdLocationPin } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
-import { formatPhone } from '../../helperFunctions';
-
-
-const typeColors = {
-    micro: '#d11141',
-    contract: '#00b159',
-    regional: '#00aedb',
-    planning: '#f37735',
-    brewpub: '#ffc425', //change this
-    other: '#333',
-}
+import { formatPhone } from '../../helperFunctions/helperFunctions';
 
 function BreweryListItem({brewery, cityState}) {
 
   const {name, brewery_type, state, street, postal_code, website_url, id, latitude, longitude, phone} = brewery;
   const address = formatAddress(street, state, postal_code, cityState);
   const formattedPhone = formatPhone(phone);
-
-
 
   return (
     <li className="list-container flex-vert">
@@ -45,7 +35,7 @@ function BreweryListItem({brewery, cityState}) {
               <div></div>}
             {latitude && longitude 
               ? 
-                <Link to={`/brewery-details?id=${id}`}>More Details 
+                <Link to={`/brewery-details?id=${id}&cityState=${cityState[0]}-${cityState[1]}`}>More Details 
                   <BsArrowRight className="icon" />
                 </Link> 
               : 

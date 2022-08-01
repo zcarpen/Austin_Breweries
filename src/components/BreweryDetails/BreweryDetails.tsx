@@ -1,22 +1,27 @@
 import {Link} from 'react-router-dom'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 import {Fragment} from 'react'
+
+import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
+import './BreweryDetails.scss'
+
 import { FiExternalLink } from 'react-icons/fi'
 import { MdLocationPin } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
-import { formatAddress, formatPhone } from '../../helperFunctions'
-import './BreweryDetails.scss'
 
-function BreweryDetails({listOfBreweries, cityState}) {
-  // let params = useParams()
+
+function BreweryDetails({listOfBreweries, cityState, handleDetailLoad}) {
   const queryParams = new URLSearchParams(window.location.search)
-  if (listOfBreweries.length === 0) {
-    console.log('need to fetch breweries')
-    return
-  }
   const id = queryParams.get("id")
-  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries.find(brewery => brewery.id === id)
+  const cityStateParams = queryParams.get("cityState")?.split('-');
+
+  if (listOfBreweries.length === 0) {
+    handleDetailLoad(cityStateParams?.join(', '))
+  }
+  
+  if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
+  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id)
   const position = [latitude, longitude];
   const address = formatAddress(street, state, postal_code, cityState);
   const formattedPhone = formatPhone(phone);
