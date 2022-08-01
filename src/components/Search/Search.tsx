@@ -12,7 +12,7 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
         setSearch(e.target.value)
     }
 
-    const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       if (search.split(',').length !== 2) {
         setWarning(true)

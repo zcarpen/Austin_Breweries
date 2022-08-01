@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Fragment} from 'react';
+import {useEffect, useState, Fragment} from 'react';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 import './App.scss'
@@ -9,6 +9,7 @@ import Search from './components/Search/Search';
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState<[string, string]>(['austin', 'texas'])
 
   useEffect(() => {
@@ -45,8 +46,8 @@ function App() {
             id
           }]
         }, [])
-        console.log(newBreweries)
         setListOfBreweries(newBreweries)
+        setIsLoading(false)
       } catch(err) {
         console.log(err)
       }
@@ -55,19 +56,22 @@ function App() {
   }, [search])
 
   const handleNewSearch = (search: string) => {
-    let [city, state] = search.split(',')
+    const [city, state] = search.split(',')
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
 
-  const handleDetailLoad = (search: string) => {
-    let [city, state] = search.split(',')
+  const handleDetailLoad = (search: string | undefined) => {
+    const [city, state] = search?.split(',')
     useEffect(() => {
       setSearch([city.toLowerCase(), state.trim().toLowerCase()])
     }, [])
   }
+  
+
+  if (isLoading) return <div className="app loading">LOADING...</div>
   return (
     <div className="app">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={
             <Fragment>
@@ -77,7 +81,7 @@ function App() {
           }></Route>
           <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} handleDetailLoad={handleDetailLoad}/>}></Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   )
 }

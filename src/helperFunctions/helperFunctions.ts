@@ -19,7 +19,7 @@ export const formatAddress = (street: string | null, state: string | null, zip: 
   return `${street ? `${street.trim()}, ` : ''}${city.trim()}, ${state.trim()}${formattedZip}`
 }
 
-export const formatPhone = (phone: string) => {
+export const formatPhone = (phone: string | null) => {
   if (!phone) return ''
 
   let sanitizedPhone = phone.replace(/\D+/g, '') //sanitizes phone number of special characters besides digits

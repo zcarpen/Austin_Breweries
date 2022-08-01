@@ -8,6 +8,6 @@ export type Brewery = {
   website_url: string | null,
   latitude: string | null,
   longitude: string | null,
-  brewery_type: string | null,
+  brewery_type: string | undefined,
   id: string | null,
 }
