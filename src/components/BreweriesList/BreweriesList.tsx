@@ -1,8 +1,10 @@
 import './BreweriesList.scss';
 import BreweryListItem from './BreweryListItem';
-import {MdSort} from 'react-icons/md';
+import SearchError from '../SearchError/SearchError';
+import {MdSentimentSatisfied, MdSort} from 'react-icons/md';
 import {useState} from 'react';
 import { Brewery } from '../../types/brewery';
+
 
 function BreweriesList({listOfBreweries, cityState}) {
 
@@ -18,9 +20,13 @@ function BreweriesList({listOfBreweries, cityState}) {
         <MdSort className="icon"/>
       </div>
       <h3>List of Breweries</h3>
-      <ul>
-        {sortedBreweries.map(brewery => <BreweryListItem key={brewery.id} brewery={brewery} cityState={cityState} />)}
-      </ul>
+      {
+        listOfBreweries.length > 0 ? 
+        <ul>
+          {sortedBreweries.map(brewery => <BreweryListItem key={brewery.id} brewery={brewery} cityState={cityState} />)}
+        </ul> : 
+        <SearchError />
+      }
     </div>
   )
 }

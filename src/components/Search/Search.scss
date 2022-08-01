@@ -9,10 +9,12 @@
     justify-content: space-between;
     padding: 2rem;
     width: 100%;
+    position: relative;
 }
 
 .location {
     align-self: flex-start;
+    padding-left: 5%;
     span {
         text-decoration: underline;
     }
@@ -20,6 +22,7 @@
 
 .title {
     margin-top: 0;
+    margin-bottom: 2rem;
     font-size: 3rem;
     font-weight: styles.$very-bold;
 }
@@ -53,5 +56,29 @@
         font-size: 1.4rem;
         color: styles.$secondary;
         box-shadow: styles.$small-box-shadow;
+    }
+    p {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        color: styles.$primary;
+        font-weight: styles.$bold;
+        width: 15%;
+        border-radius: 10px;
+        font-size: 1.4rem;
+        padding: 1rem;
+        background-color: styles.$secondary;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .search-bar {
+        label {
+            display: none;
+        }
     }
 }

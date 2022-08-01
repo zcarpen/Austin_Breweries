@@ -4,7 +4,8 @@
     border-radius: 10px;
     color: styles.$tertiary;
     background-color: styles.$secondary;
-    box-shadow: styles.$large-box-shadow
+    box-shadow: styles.$large-box-shadow;
+    height: fit-content;
 }
 
 .brewery-title-type {
@@ -45,6 +46,7 @@
     } 
     .brewpub {
         background-color: #ffc425;
+        color: styles.$secondary;
     } 
 }
 
@@ -65,6 +67,9 @@
         }
         max-width: 60%;
     }
+    .address {
+        max-width: 100%;
+    }
     span {
         text-decoration: underline;
         text-align: start;
@@ -73,6 +78,7 @@
         text-overflow: ellipsis;
         max-width: 30rem;
     }
+    
 }
 
 .website-details-container {
@@ -91,3 +97,43 @@
     display: flex;
 }
 
+@media (max-width: styles.$breakpoint-phone) {
+    .brewery-details {
+        a {
+            font-size: 1.4rem;
+            max-width: 60%;
+        }
+        
+        
+    }
+}
+
+@media (max-width: 600px) {
+    .brewery-title-type {
+        h3 {
+            font-size: 1.4rem;
+        }
+    
+    }
+    .brewery-details {
+        a {
+            font-size: 1.2rem;
+        }
+        
+    }
+}
+
+@media (max-width: 450px) {
+    .brewery-title-type {
+        h3 {
+            font-size: 1.2rem;
+        }
+    
+    }
+    .brewery-details {
+        a {
+            font-size: 1rem;
+        }
+        
+    }
+}

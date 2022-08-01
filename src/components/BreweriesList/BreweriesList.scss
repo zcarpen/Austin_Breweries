@@ -1,22 +1,19 @@
 @use '../../stylesConfig.scss' as styles;
 
 .breweries-list-container{
-    max-height: 80%;
+    height: 80%;
     width: 100%;
-    background-color: styles.$primary;
     color: #fff;
     position: relative;
 
     ul {
-        height: 90%;
-        // display: flex;
-        // flex-direction: column;
-        // gap: 2rem;
+        max-height: 90%;
         list-style: none;
         display: grid;
         grid-template-columns: 50% 50%;
         gap: 2rem;
-        padding: 0 2rem;
+        padding: 5% 2rem;
+        margin-top: 0;
         overflow: scroll;
         justify-content: center;
         justify-items: inherit;
@@ -26,8 +23,9 @@
         color: styles.$secondary;
         font-size: 1.6rem;
         letter-spacing: 0.2rem;
-    }
-    
+        margin-bottom: 0;
+        border-bottom: 2px solid styles.$secondary;
+    }  
 }
 
 .sort {
@@ -56,5 +54,35 @@
 
     .icon {
         font-size: 2rem;
+    }
+}
+
+
+@media (max-width: styles.$breakpoint-phone) {
+    .breweries-list-container {
+        ul {
+            grid-template-columns: 80%;
+        }
+        
+        h3 {
+            text-align: start;
+            padding-left: 5%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .breweries-list-container {
+        ul {
+            grid-template-columns: 95%;
+        }
+
+        h4 {
+            display: none;
+        }
+
+        .sort {
+            right: 15%;
+        }
     }
 }

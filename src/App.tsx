@@ -13,9 +13,11 @@ function App() {
 
   useEffect(() => {
     const fetchBreweries = async() => {
+      console.log(search[0], search[1])
       try {
         const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
 
+        console.log(result)
         const newBreweries = result.data.reduce((breweries: Brewery[], brewery: Brewery) => {
           const {
             street,
@@ -45,6 +47,7 @@ function App() {
             id
           }]
         }, [])
+        console.log(newBreweries)
         setListOfBreweries(newBreweries)
       } catch(err) {
         console.log(err)
@@ -53,9 +56,9 @@ function App() {
     fetchBreweries()
   }, [search])
 
-  const handleNewSearch = (e: React.FormEvent<HTMLInputElement>, search: string) => {
-    e.preventDefault();
+  const handleNewSearch = (search: string) => {
     let [city, state] = search.split(',')
+    console.log(city, state)
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
 

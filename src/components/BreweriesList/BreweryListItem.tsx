@@ -32,7 +32,7 @@ function BreweryListItem({brewery, cityState}) {
           <p className={brewery_type}>{brewery_type}</p>
         </div>
         <div className="brewery-details flex-vert">
-          <a>
+          <a className="address">
             <MdLocationPin className='icon'/>
             <span>{address}</span>
           </a>

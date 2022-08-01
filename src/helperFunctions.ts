@@ -28,5 +28,5 @@ export const formatPhone = (phone: string) => {
     sanitizedPhone = sanitizedPhone.slice(1)
   }
 
-  return `(${sanitizedPhone.slice(0,3)}) ${sanitizedPhone.slice(3,6)} - ${sanitizedPhone.slice(6)}`
+  return `(${sanitizedPhone.slice(0,3)}) ${sanitizedPhone.slice(3,6)}-${sanitizedPhone.slice(6)}`
 }
