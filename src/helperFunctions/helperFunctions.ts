@@ -32,6 +32,7 @@ export const formatPhone = (phone: string | null) => {
   return `(${sanitizedPhone.slice(0,3)}) ${sanitizedPhone.slice(3,6)}-${sanitizedPhone.slice(6)}`
 }
 
+//this function is used to reformat the list of breweries to only contain the information needed to run the application
 export const formatNewBreweries = (breweries: Brewery[]) => {
   return breweries.reduce((breweries: Brewery[], brewery: Brewery) => {
     const {
