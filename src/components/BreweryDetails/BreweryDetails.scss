@@ -31,21 +31,9 @@
     padding: 2rem;
 }
 
-.micro {
-    background-color: #d11141;
+p {
+    margin: 0;
 }
-.contract {
-    background-color: #00b159;
-}
-.regional {
-    background-color: #00aedb;
-} 
-.planning {
-    background-color: #f37735;
-} 
-.brewpub {
-    background-color: #ffc425;
-} 
 
 .brewery-type {
     position: absolute;
@@ -53,8 +41,9 @@
     right: 5%;
     border-radius: 10px;
     padding: 0.25rem 1rem;
-    font-size: 1.6rem;
-    color: styles.$secondary;
+    font-size: styles.$M;
+    color: styles.$tertiary;
+    background-color: #333;
 }
 
 .back {
@@ -64,7 +53,7 @@
     left: 5%;
     border-radius: 10px;
     padding: 0.25rem 1rem;
-    font-size: 1.6rem;
+    font-size: styles.$M;
     text-decoration: none;
     background-color: styles.$primary;
 }
@@ -74,16 +63,31 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    font-size: 1.6rem;
+    font-size: styles.$M;
     gap: 2rem;
+    overflow: hidden;
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        color: #fff;
+    h1 {
+        font-size: styles.$XL;
+        margin: 0;
+        text-align: start;
     }
+    
+    a {
+        text-align: start;
+        color: #fff;
+        
+        span {
+            margin-left: 2rem;
+        }
+    }
+}
+
+.ellipsis {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .icon-container {
@@ -95,7 +99,32 @@
     font-size: 15rem;
 }
 
-h1 {
-    font-size: 3rem;
-    margin: 0;
+@media (max-width: styles.$breakpoint-tablet) {
+    .contact-details {
+        h1 {
+            font-size: styles.$L;
+        }
+        a {
+            font-size: styles.$S;
+        }
+    }
+}
+@media (max-width: styles.$breakpoint-small-tablet) {
+    .contact-details {
+        gap: 1rem;
+
+        a {
+            span {
+                margin-left: 1rem;
+            }
+        }
+    }
+    .general-info {
+        gap: 0;
+        flex-direction: column;
+    }
+
+}
+@media (max-width: styles.$breakpoint-phone) {
+
 }

@@ -1,0 +1,27 @@
+@use '../../stylesConfig.scss' as styles;
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.error-container {
+    background-color: styles.$hover;
+    padding: 3rem;
+    color: styles.$secondary;
+    border-radius: 0 50px;
+    width: 50%;
+    margin-top: 5rem;
+
+    p {
+        font-size: styles.$M;
+        font-weight: styles.$bold;
+    }
+    
+    h1 {
+        letter-spacing: 0.25rem;
+    }
+}
+

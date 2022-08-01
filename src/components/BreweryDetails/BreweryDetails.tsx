@@ -5,7 +5,7 @@ import { FiExternalLink } from 'react-icons/fi'
 import { MdLocationPin } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
-import { formatAddress } from '../../helperFunctions'
+import { formatAddress, formatPhone } from '../../helperFunctions'
 import './BreweryDetails.scss'
 
 function BreweryDetails({listOfBreweries, cityState}) {
@@ -19,34 +19,34 @@ function BreweryDetails({listOfBreweries, cityState}) {
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries.find(brewery => brewery.id === id)
   const position = [latitude, longitude];
   const address = formatAddress(street, state, postal_code, cityState);
-  console.log(address)
+  const formattedPhone = formatPhone(phone);
 
   return (
     <Fragment>
       <div className="card">
         <Link className="back" to="/">Back to breweries</Link>
-        <div className={`brewery-type ${brewery_type}`} >{brewery_type}</div>
+        <p className={`brewery-type ${brewery_type}`} >{brewery_type}</p>
         <div className="general-info">
           <div className="icon-container">
             <FcContacts className="contact-icon"/>
           </div>
           <div className="contact-details">
-            <h1>{name}</h1>
+            <h1 className="ellipsis">{name}</h1>
             {address && 
-              <a>
+              <a className="ellipsis">
                 <MdLocationPin/>
                 <span>{address}</span>
               </a>
             }
             {phone && 
-              <a>
+              <a className="ellipsis">
                 <BsTelephone/>
-                <span>{phone}</span>
+                <span>{formattedPhone}</span>
               </a>
             }
             {
             website_url && 
-              <a target="_blank" href={website_url}>
+              <a className="ellipsis" target="_blank" href={website_url}>
                 <FiExternalLink/>
                 <span>{website_url}</span>
               </a>

@@ -1,23 +1,42 @@
 import './Search.scss';
 import React, { useState } from 'react';
 import { formatCityState } from '../../helperFunctions';
+import { MdSecurityUpdateWarning } from 'react-icons/md';
 
-function Search({currentSearch, handleNewSearch}: {currentSearch: string[], handleNewSearch: (e: React.FormEvent<HTMLFormElement>, search:string) => void}) {
+function Search({currentSearch, handleNewSearch}: {currentSearch: string[], handleNewSearch: (search:string) => void}) {
     const [city, state] = formatCityState(currentSearch)
     const [search, setSearch] = useState('')
+    const [warning, setWarning] = useState(false)
 
     const handleSearch = (e: {target: {value: string}}) => {
         setSearch(e.target.value)
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+      e.preventDefault()
+      if (search.split(',').length !== 2) {
+        setWarning(true)
+
+        setTimeout(() => {
+          setWarning(false)
+        }, 2500)
+        return;
+      }
+      handleNewSearch(search)
+    }
+
   return (
     <div className="search">
-      <h2 className="location"><span>{`${city}, ${state}`}</span> Breweries</h2>
+      {warning ? 
+        <p>Be sure to use "city, state"</p> :
+        <h2 className="location"><span>{`${city}, ${state}`}</span> Breweries</h2>
+      }
       <h1 className="title">Find Breweries Near You!</h1>
-      <form className="search-bar" onSubmit={(e) => handleNewSearch(e, search)}>
+      <form className="search-bar" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="search-bar-value">Search By City:</label>
-        <input id="search-bar-value" value={search} onChange={handleSearch}/>
+        <input id="search-bar-value" placeholder="(City, State)" value={search} onChange={handleSearch}/>
         <button type="submit">Search</button>
+        
       </form>
     </div>
   )

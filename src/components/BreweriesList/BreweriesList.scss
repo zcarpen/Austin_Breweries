@@ -1,28 +1,88 @@
 @use '../../stylesConfig.scss' as styles;
 
 .breweries-list-container{
-    max-height: 80%;
+    height: 80%;
     width: 100%;
-    background-color: styles.$primary;
     color: #fff;
+    position: relative;
+
+    ul {
+        max-height: 90%;
+        list-style: none;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 2rem;
+        padding: 5% 2rem;
+        margin-top: 0;
+        overflow: scroll;
+        justify-content: center;
+        justify-items: inherit;
+    }
+
+    h3 {
+        color: styles.$secondary;
+        font-size: styles.$M;
+        letter-spacing: 0.2rem;
+        margin-bottom: 0;
+        border-bottom: 2px solid styles.$secondary;
+    }  
 }
 
-.list {
-    height: 90%;
-    // display: flex;
-    // flex-direction: column;
-    // gap: 2rem;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding: 0 2rem;
-    overflow: scroll;
-}
-
-.list-title {
-    color: styles.$secondary;
-    font-size: 1.6rem;
+.sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: styles.$primary;
     letter-spacing: 0.2rem;
-    // opacity:
+    background-color: styles.$secondary;
+    position: absolute;
+    right: 4rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+    font-weight: styles.$bold;
+    gap: 1rem;
+    box-shadow: styles.$small-box-shadow;
+
+    &:hover {
+        cursor: pointer;
+        color: styles.$hover;
+    }
+
+    h4 {
+        margin: 0;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: styles.$breakpoint-tablet) {
+    .breweries-list-container {
+        ul {
+            grid-template-columns: 80%;
+        }
+        
+        h3 {
+            text-align: start;
+            padding-left: 5%;
+        }
+    }
+}
+
+@media (max-width: styles.$breakpoint-small-tablet) {
+    .breweries-list-container {
+        ul {
+            grid-template-columns: 95%;
+        }
+
+        h4 {
+            display: none;
+        }
+
+        .sort {
+            right: 15%;
+        }
+    }
 }
