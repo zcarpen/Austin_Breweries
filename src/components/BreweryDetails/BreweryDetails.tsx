@@ -15,21 +15,18 @@ import { Brewery } from '../../types/brewery'
 
 
 function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
-  const {id} = useParams() as {id: string}
-  const [id2, curParams] = id.split('=').slice(1);
-  const newId = id2.split('&')[0]
-  let cityStateParams = curParams.split('-');
-  console.log(newId)
-  console.log(cityStateParams)
+
+  const {id, cityStateParams} = useParams() as {id: string, cityStateParams: string}
+  const curParams = cityStateParams.split('-')
 
   useEffect(() => {
     if (cityStateParams[0] !== 'austin') {
-      setSearch(cityStateParams)  
+      setSearch(curParams)  
     }
   } ,[])
 
-  if (!listOfBreweries?.find(brewery => brewery.id === newId)) return <></>
-  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === newId) as Brewery
+  if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
+  const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id) as Brewery
 
   const position: LatLngExpression = [Number(latitude), Number(longitude)];
   const address = formatAddress(street, state, postal_code, cityState);

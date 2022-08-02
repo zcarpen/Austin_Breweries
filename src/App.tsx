@@ -54,7 +54,7 @@ function App() {
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
           }></Route>
-          <Route path="/brewery-details:id" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
+          <Route path="/brewery-details/:id/:cityStateParams" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
         </Routes>
       </Router>
     </div>

@@ -32,7 +32,7 @@ function BreweryListItem({brewery, cityState}: BLIProps) {
               <div></div>}
             {latitude && longitude 
               ? 
-                <Link to={`/brewery-details:id=${id}&cityState=${cityState[0]}-${cityState[1]}`}>More Details 
+                <Link to={`/brewery-details/${id}/${cityState[0]}-${cityState[1]}`}>More Details 
                   <Arrow/>
                 </Link> 
               : 
