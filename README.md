@@ -8,6 +8,9 @@
     <img src="./public/BreweryFinder.gif" alt="BreweryFinderGif" height="360px" />
 </div>
 
+## Viewing the Application
+
+* View the Application by cloning it and then running "npm run dev"
 
 ## Key Features
 
