@@ -118,6 +118,7 @@ p {
     }
 
 }
+
 @media (max-height: styles.$breakpoint-medium) {
     .icon-container {
         height: 10rem;
@@ -135,5 +136,11 @@ p {
 
     .card {
         width: 90%;
+    }
+}
+
+@media (max-height: styles.$breakpoint-short) {
+    .map-container {
+        height: 20rem;
     }
 }

@@ -86,3 +86,12 @@
         }
     }
 }
+
+
+@media (max-height: 425px) {
+    .breweries-list-container {
+        .sort {
+            top: -25%;
+        }
+    }
+}
