@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import './BreweriesList.scss';
 import BreweryListItem from './BreweryListItem';
-import SearchError from '../searchError/SearchError';
+import SearchError from '../SearchError/SearchError';
 import { BLProps } from '../../types/breweryListProps';
 import { Brewery } from '../../types/brewery';
 
