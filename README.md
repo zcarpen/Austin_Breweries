@@ -4,4 +4,6 @@
 
 <p align="center">Visit the <a href="https://thebreweryfinder.netlify.app/">BreweryFinder App</a> deployed using Netlify</p>
 
-<img align="center" src="./public/BreweryFinder.gif" alt="BreweryFinderGif" height="360px" />
+<div align="center">
+    <img src="./public/BreweryFinder.gif" alt="BreweryFinderGif" height="360px" />
+</div>
