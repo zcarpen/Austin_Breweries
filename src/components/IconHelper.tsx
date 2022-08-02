@@ -3,7 +3,6 @@ import { FiExternalLink } from 'react-icons/fi'
 import { MdLocationPin } from 'react-icons/md'
 import { BsTelephone } from 'react-icons/bs'
 import {FcContacts} from 'react-icons/fc'
-import React from 'react';
 
 
 export const Pin = () => {

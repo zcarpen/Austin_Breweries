@@ -1,6 +1,7 @@
 import {useEffect, useState, Fragment} from 'react';
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
+
 import './App.scss'
 import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
@@ -34,13 +35,14 @@ function App() {
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
 
-  const handleDetailLoad = (search: string | undefined) => {
-    const [city, state] = search?.split(',')
-    useEffect(() => {
-      setSearch([city.toLowerCase(), state.trim().toLowerCase()])
-    }, [])
-  }
-  
+  // useEffect(() => {
+
+  // // const handleDetailLoad = (search: string | undefined) => {
+  //   const [city, state] = search?.split(',')
+  //   setSearch([city.toLowerCase(), state.trim().toLowerCase()])
+  //   // }
+    
+  // }, [])
 
   if (isLoading) return <div className="app loading">LOADING...</div>
   return (
@@ -49,11 +51,11 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Fragment>
-              <Search currentSearch={search} handleNewSearch={handleNewSearch}/>
+              <Search currentSearch={search} handleNewSearch={handleNewSearch} />
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
           }></Route>
-          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} handleDetailLoad={handleDetailLoad}/>}></Route>
+          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
         </Routes>
       </Router>
     </div>

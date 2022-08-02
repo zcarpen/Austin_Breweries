@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
-import {Fragment} from 'react'
+import {Fragment, useEffect} from 'react'
 import {FcContacts} from 'react-icons/fc'
 
 import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
@@ -12,14 +12,16 @@ import { BDProps } from '../../types/breweryDetailsProps'
 
 
 
-function BreweryDetails({listOfBreweries, cityState, handleDetailLoad}: BDProps) {
+function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
   const queryParams = new URLSearchParams(window.location.search)
   const id = queryParams.get("id")
   const cityStateParams = queryParams.get("cityState").split('-');
   
-  if (cityStateParams[0] !== 'austin') {
-    handleDetailLoad(cityStateParams.join(', '))
-  }
+  useEffect(() => {
+    if (cityStateParams[0] !== 'austin') {
+      setSearch(cityStateParams)  
+    }
+  } ,[])
 
   if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id)
