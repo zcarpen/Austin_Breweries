@@ -7,3 +7,27 @@
 <div align="center">
     <img src="./public/BreweryFinder.gif" alt="BreweryFinderGif" height="360px" />
 </div>
+
+
+## Key Features
+
+* Search Breweries by "city, state"
+* Sort Breweries by type
+* View Individual Details of a Brewery 
+* Visit Brewery Website
+* Call Brewery
+* Find Brewery Location on Map
+
+
+This software uses the following technologies:
+
+- [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
+- [Netlify](https://www.netlify.com/)
+- [Leaflet](https://leafletjs.com/)
+
+
+
+<h2>Contact Me:</h2>
+<a href="https://www.linkedin.com/in/zachcar">LinkedIn</a>
