@@ -1,7 +1,7 @@
 import {Link, useParams} from 'react-router-dom'
-import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
-import {Fragment, useEffect} from 'react'
-import {FcContacts} from 'react-icons/fc'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Fragment, useEffect } from 'react'
+import { FcContacts } from 'react-icons/fc'
 
 import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
 import { LinkIcon, Pin, Phone } from '../IconHelper'
@@ -28,9 +28,9 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
   if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id) as Brewery
 
-  const position: LatLngExpression = [Number(latitude), Number(longitude)];
-  const address = formatAddress(street, state, postal_code, cityState);
-  const formattedPhone = formatPhone(phone);
+  const position: LatLngExpression = [Number(latitude), Number(longitude)]
+  const address = formatAddress(street, state, postal_code, cityState)
+  const formattedPhone = formatPhone(phone)
 
   return (
     <Fragment>
@@ -44,7 +44,11 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
           <div className="contact-details">
             <h1 className="ellipsis">{name}</h1>
             {address && 
-              <a className="ellipsis" target="_blank" href={`https://maps.google.com/?q=1200 ${address}`}>
+              <a 
+                className="ellipsis" 
+                target="_blank" 
+                href={`https://maps.google.com/?q=1200 ${address}`}
+              >
                 <Pin/>
                 <span>{address}</span>
               </a>
@@ -57,7 +61,11 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
             }
             {
             website_url && 
-              <a className="ellipsis" target="_blank" href={website_url}>
+              <a 
+                className="ellipsis" 
+                target="_blank" 
+                href={website_url}
+              >
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a>
@@ -65,7 +73,12 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
           </div>
         </div>
         {latitude && longitude && <div className="map-container">
-          <MapContainer style={{height: "100%", width: "100%"}} center={position} zoom={10} scrollWheelZoom={false}>
+          <MapContainer 
+            style={{height: "100%", width: "100%"}} 
+            center={position} 
+            zoom={10} 
+            scrollWheelZoom={false}
+          >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

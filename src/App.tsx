@@ -23,7 +23,8 @@ function App() {
         setListOfBreweries(newBreweries)
         setIsLoading(false)
       } catch(err) {
-        console.log(err)
+        // if time permits, display an error
+        setIsLoading(false)
       }
     }
     fetchBreweries()
@@ -33,15 +34,6 @@ function App() {
     const [city, state] = search.split(',')
     setSearch([city.toLowerCase(), state.trim().toLowerCase()])
   }
-
-  // useEffect(() => {
-
-  // // const handleDetailLoad = (search: string | undefined) => {
-  //   const [city, state] = search?.split(',')
-  //   setSearch([city.toLowerCase(), state.trim().toLowerCase()])
-  //   // }
-    
-  // }, [])
 
   if (isLoading) return <div className="app loading">LOADING...</div>
   return (

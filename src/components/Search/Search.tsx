@@ -1,7 +1,7 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent } from 'react'
 
-import './Search.scss';
-import { formatCityState } from '../../helperFunctions/helperFunctions';
+import './Search.scss'
+import { formatCityState } from '../../helperFunctions/helperFunctions'
 
 function Search({currentSearch, handleNewSearch}: {currentSearch: string[], handleNewSearch: (search:string) => void}) {
     const [city, state] = formatCityState(currentSearch)

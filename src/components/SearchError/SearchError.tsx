@@ -1,4 +1,4 @@
-import './SearchError.scss';
+import './SearchError.scss'
 
 function SearchError() {
   return (

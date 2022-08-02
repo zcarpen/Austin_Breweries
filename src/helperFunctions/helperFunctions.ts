@@ -1,11 +1,10 @@
-import axios from 'axios';
-import { Brewery } from '../types/brewery';
+import { Brewery } from '../types/brewery'
 
-export const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1).toLowerCase();
+export const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1).toLowerCase()
 
 // takes an array of words [city, state] and returns [City, State]
 export const formatCityState = (search: string[]) => {
-  const [city, state] = search;
+  const [city, state] = search
   
   const capitolizedSearch = [capitalizeFirstLetter(city), capitalizeFirstLetter(state)]
 
@@ -13,8 +12,8 @@ export const formatCityState = (search: string[]) => {
 }
 
 export const formatAddress = (street: string | null, state: string | null, zip: string | null, cityState: string[]) => {
-  const city = capitalizeFirstLetter(cityState[0]);
-  const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : '';
+  const city = capitalizeFirstLetter(cityState[0])
+  const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : ''
 
   state = state || capitalizeFirstLetter(cityState[1])
   

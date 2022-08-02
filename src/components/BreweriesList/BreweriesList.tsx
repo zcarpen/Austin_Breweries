@@ -1,12 +1,12 @@
-import {useState} from 'react';
+import {useState} from 'react'
 
-import './BreweriesList.scss';
-import BreweryListItem from './BreweryListItem';
-import SearchError from '../SearchError/SearchError';
-import { BLProps } from '../../types/breweryListProps';
-import { Brewery } from '../../types/brewery';
+import './BreweriesList.scss'
+import BreweryListItem from './BreweryListItem'
+import SearchError from '../SearchError/SearchError'
+import { BLProps } from '../../types/breweryListProps'
+import { Brewery } from '../../types/brewery'
 
-import {MdSort} from 'react-icons/md';
+import {MdSort} from 'react-icons/md'
 
 
 
@@ -28,7 +28,13 @@ const BreweriesList = ({listOfBreweries, cityState}: BLProps) => {
       {
         listOfBreweries.length > 0 ? 
         <ul>
-          {sortedBreweries.map(brewery => <BreweryListItem key={brewery.id} brewery={brewery} cityState={cityState} />)}
+          {sortedBreweries.map(brewery => (
+            <BreweryListItem 
+              key={brewery.id} 
+              brewery={brewery} 
+              cityState={cityState} 
+            />
+          ))}
         </ul> : 
         <SearchError />
       }
