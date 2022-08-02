@@ -118,6 +118,22 @@ p {
     }
 
 }
-@media (max-width: styles.$breakpoint-phone) {
+@media (max-height: styles.$breakpoint-medium) {
+    .icon-container {
+        height: 10rem;
+        width: 10rem;
+    }
 
+    .contact-icon {
+        font-size: 10rem;
+    }
+
+    .general-info {
+        padding: 1rem;
+        flex-direction: row;
+    }
+
+    .card {
+        width: 90%;
+    }
 }

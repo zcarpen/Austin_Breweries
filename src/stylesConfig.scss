@@ -25,6 +25,10 @@ $large-box-shadow: 6px 6px 9px rgba(0,0,0,0.4);
 
 
 // media queries:
+    // width
 $breakpoint-tablet: 768px;
 $breakpoint-small-tablet: 600px;
 $breakpoint-phone: 450px;
+    // height
+$breakpoint-short: 575px;
+$breakpoint-medium: 725px;

@@ -87,3 +87,35 @@
         }
     }
 }
+
+@media (max-height: styles.$breakpoint-short) {
+    .title {
+        margin-bottom: 0rem;
+        font-size: styles.$M;
+    }
+
+    .search {
+        padding: 0 2rem;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+
+    .location {
+        font-size: styles.$XS;
+        margin: 0;
+    }
+
+    .search-bar {
+        label {
+            font-size: styles.$XS
+        }
+
+        input {
+            font-size: styles.$S;
+        }
+
+        button {
+            font-size: styles.$XS
+        }
+    }
+}
