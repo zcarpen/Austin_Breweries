@@ -12,13 +12,12 @@ import { formatNewBreweries } from './helperFunctions/helperFunctions';
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
   const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState<[string, string]>(['austin', 'texas'])
+  const [search, setSearch] = useState<string[]>(['austin', 'texas'])
 
   useEffect(() => {
     const fetchBreweries = async() => {
       try {
         const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
-        
         const newBreweries = formatNewBreweries(result.data)
 
         setListOfBreweries(newBreweries)
@@ -55,7 +54,7 @@ function App() {
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
           }></Route>
-          <Route path="/brewery-details" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
+          <Route path="/brewery-details:id" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
         </Routes>
       </Router>
     </div>
