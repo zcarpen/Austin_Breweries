@@ -22,7 +22,7 @@
 * Find Brewery Location on Map
 
 
-This software uses the following technologies:
+## This software uses the following technologies:
 
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
