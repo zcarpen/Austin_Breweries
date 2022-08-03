@@ -3,6 +3,10 @@ import { useEffect, useRef, useState } from "react";
 // got custom hook from:
 // https://www.smashingmagazine.com/2020/07/custom-react-hook-fetch-cache-data/
 
+const cache = {current: {
+    'someURL': 'data that is fetched',
+}}
+
 export function useMemoizedFetch<T>(url: string) {
     const cache = useRef<any>({});
     const [status, setStatus] = useState('idle');

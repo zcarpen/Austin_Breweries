@@ -32,11 +32,6 @@ function App() {
     fetchBreweries()
   }, [search])
 
-  const handleNewSearch = useCallback((search: string) => {
-    const [city, state] = search.split(',')
-    setSearch([city.toLowerCase(), state.trim().toLowerCase()])
-  }, []);
-
   if (isLoading) return <div className="app loading">LOADING...</div> //keeps rest of app from loading and renders a message
   return (
     <div className="app">
@@ -44,11 +39,18 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Fragment>
-              <Search currentSearch={search} handleNewSearch={handleNewSearch} />
+              <Search currentSearch={search} setSearch={setSearch} />
               <BreweriesList listOfBreweries={listOfBreweries} cityState={search}/>
             </Fragment>
-          }></Route>
-          <Route path="/brewery-details/:id/:cityStateParams" element={<BreweryDetails listOfBreweries={listOfBreweries} cityState={search} setSearch={setSearch}/>}></Route>
+          }/>
+          <Route 
+            path="/brewery-details/:id/:cityStateParams" 
+            element={<BreweryDetails 
+              listOfBreweries={listOfBreweries} 
+              cityState={search} 
+              setSearch={setSearch}
+            />}
+          />
         </Routes>
       </Router>
     </div>

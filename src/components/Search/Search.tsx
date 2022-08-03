@@ -4,18 +4,18 @@ import './Search.scss'
 import { formatCityState } from '../../helperFunctions/helperFunctions'
 import { SProps } from '../../types/searchProps';
 
-function Search({currentSearch, handleNewSearch}: SProps) {
+function Search({currentSearch, setSearch}: SProps) {
     const [city, state] = formatCityState(currentSearch)
-    const [search, setSearch] = useState('')
+    const [curSearch, setCurSearch] = useState('')
     const [warning, setWarning] = useState(false)
     
     const handleSearch = (e: {target: {value: string}}) => {
-      setSearch(e.target.value)
+      setCurSearch(e.target.value)
     }
     
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      if (search.split(',').length !== 2) {
+      if (curSearch.split(',').length !== 2) {
         setWarning(true)
         
         setTimeout(() => {
@@ -23,7 +23,8 @@ function Search({currentSearch, handleNewSearch}: SProps) {
         }, 2500)
         return;
       }
-      handleNewSearch(search)
+      const [city, state] = curSearch.split(',')
+      setSearch([city.toLowerCase(), state.trim().toLowerCase()])
     }
   
   return (
@@ -35,7 +36,7 @@ function Search({currentSearch, handleNewSearch}: SProps) {
       <h1 className="title">Find Breweries Near You!</h1>
       <form className="search-bar" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="search-bar-value">Search By City:</label>
-        <input id="search-bar-value" placeholder="(City, State)" value={search} onChange={handleSearch}/>
+        <input id="search-bar-value" placeholder="(City, State)" value={curSearch} onChange={handleSearch}/>
         <button type="submit">Search</button>
         
       </form>
