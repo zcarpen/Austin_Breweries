@@ -10,9 +10,10 @@ function BreweryListItem({brewery, cityState}: BLIProps) {
   const {name, brewery_type, state, street, postal_code, website_url, id, latitude, longitude, phone} = brewery
   const address = formatAddress(street, state, postal_code, cityState)
   const formattedPhone = formatPhone(phone)
-  
+
   return (
     <li className="list-container">
+      {console.log('rendering BreweryListItem')}
         <div className="brewery-title-type">
           <h3>{name}</h3>
           <p className={brewery_type}>{brewery_type}</p>

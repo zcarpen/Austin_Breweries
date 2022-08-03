@@ -23,14 +23,14 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
       setSearch(curParams)  
     }
   } ,[])
-
+  
   if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
-
   const {brewery_type, latitude, longitude, name, phone, postal_code, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id) as Brewery
+  
   const position: LatLngExpression = [Number(latitude), Number(longitude)]
   const address = formatAddress(street, state, postal_code, cityState)
   const formattedPhone = formatPhone(phone)
-
+  
   return (
     <Fragment>
       <div className="card">

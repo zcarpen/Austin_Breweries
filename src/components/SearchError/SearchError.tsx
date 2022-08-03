@@ -1,6 +1,7 @@
 import './SearchError.scss'
 
 function SearchError() {
+
   return (
     <div className="center">
         <div className="error-container">

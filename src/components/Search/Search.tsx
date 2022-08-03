@@ -2,8 +2,9 @@ import { useState, FormEvent } from 'react'
 
 import './Search.scss'
 import { formatCityState } from '../../helperFunctions/helperFunctions'
+import { SProps } from '../../types/searchProps';
 
-function Search({currentSearch, handleNewSearch}: {currentSearch: string[], handleNewSearch: (search:string) => void}) {
+function Search({currentSearch, handleNewSearch}: SProps) {
     const [city, state] = formatCityState(currentSearch)
     const [search, setSearch] = useState('')
     const [warning, setWarning] = useState(false)
