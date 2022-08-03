@@ -7,11 +7,10 @@ import { Pin, Arrow, LinkIcon, Phone } from '../IconHelper'
 import { formatPhone } from '../../helperFunctions/helperFunctions'
 
 function BreweryListItem({brewery, cityState}: BLIProps) {
-
   const {name, brewery_type, state, street, postal_code, website_url, id, latitude, longitude, phone} = brewery
   const address = formatAddress(street, state, postal_code, cityState)
   const formattedPhone = formatPhone(phone)
-
+  
   return (
     <li className="list-container">
         <div className="brewery-title-type">

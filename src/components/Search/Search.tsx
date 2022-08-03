@@ -7,16 +7,16 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
     const [city, state] = formatCityState(currentSearch)
     const [search, setSearch] = useState('')
     const [warning, setWarning] = useState(false)
-
+    
     const handleSearch = (e: {target: {value: string}}) => {
-        setSearch(e.target.value)
+      setSearch(e.target.value)
     }
-
+    
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       if (search.split(',').length !== 2) {
         setWarning(true)
-
+        
         setTimeout(() => {
           setWarning(false)
         }, 2500)
@@ -24,7 +24,7 @@ function Search({currentSearch, handleNewSearch}: {currentSearch: string[], hand
       }
       handleNewSearch(search)
     }
-
+  
   return (
     <div className="search">
       {warning ? 
