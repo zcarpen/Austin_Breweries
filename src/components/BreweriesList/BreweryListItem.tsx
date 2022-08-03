@@ -13,7 +13,6 @@ function BreweryListItem({brewery, cityState}: BLIProps) {
 
   return (
     <li className="list-container">
-      {console.log('rendering BreweryListItem')}
         <div className="brewery-title-type">
           <h3>{name}</h3>
           <p className={brewery_type}>{brewery_type}</p>

@@ -12,17 +12,11 @@ import {MdSort} from 'react-icons/md'
 
 
 const BreweriesList = ({listOfBreweries, cityState}: BLProps) => {
-  console.log('BreweriesList is entered');
-  debugger;
-  
   const [sorted, setSorted] = useState(false)
   let sortedBreweries: Brewery[] = sorted === true ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
   
-  console.log('just before BreweriesList');
-  debugger;
   return (
     <div className="breweries-list-container">
-      {console.log('renders BreweriesList')}
       <div className="sort" onClick={() => setSorted(!sorted)}>
         <h4>
           Sort By Type
