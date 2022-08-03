@@ -3,8 +3,7 @@
 .search {
     height: 20%;
     color: styles.$secondary;
-    display: flex;
-    flex-direction: column;
+    @extend %flex-vert;
     align-items: center;
     justify-content: space-between;
     padding: 2rem;

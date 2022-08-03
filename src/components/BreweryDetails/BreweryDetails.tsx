@@ -42,30 +42,22 @@ function BreweryDetails({listOfBreweries, cityState, setSearch}: BDProps) {
             <FcContacts className="contact-icon"/>
           </div>
           <div className="contact-details">
-            <h1 className="ellipsis">{name}</h1>
+            <h1>{name}</h1>
             {address && 
-              <a 
-                className="ellipsis" 
-                target="_blank" 
-                href={`https://maps.google.com/?q=1200 ${address}`}
-              >
+              <a target="_blank" href={`https://maps.google.com/?q=1200 ${address}`}>
                 <Pin/>
                 <span>{address}</span>
               </a>
             }
             {phone && 
-              <a className="ellipsis" href={`tel:${formattedPhone}`}>
+              <a href={`tel:${formattedPhone}`}>
                 <Phone/>
                 <span>{formattedPhone}</span>
               </a>
             }
             {
             website_url && 
-              <a 
-                className="ellipsis" 
-                target="_blank" 
-                href={website_url}
-              >
+              <a target="_blank" href={website_url}>
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a>

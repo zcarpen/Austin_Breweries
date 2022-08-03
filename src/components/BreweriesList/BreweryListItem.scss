@@ -1,6 +1,7 @@
 @use '../../stylesConfig.scss' as styles;
 
 .list-container {
+    @extend %flex-vert;
     border-radius: 10px;
     color: styles.$tertiary;
     background-color: styles.$secondary;
@@ -9,20 +10,19 @@
 }
 
 .brewery-title-type {
+    display: flex;
     margin-bottom: 1rem;
     padding: 0 1rem;
     justify-content: space-between;
     align-items: center;
     h3 {
-        max-width: 60%;
+        @extend %ellipsis;
         font-size: styles.$M;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         color: styles.$tertiary;
         background-color: #333;
         padding: 0.25rem 3rem;
         border-radius: 10px;
+        max-width: 60%;
     }
     p {
         border-radius: 10px;
@@ -35,6 +35,7 @@
 }
 
 .brewery-details {
+    @extend %flex-vert;
     align-items: flex-start;
     padding:0 5% 5% 5%;
     gap: 2rem;
@@ -57,10 +58,7 @@
     span {
         text-decoration: underline;
         text-align: start;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        max-width: 100%;
+        @extend %ellipsis;
     }
     
 }
@@ -70,11 +68,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-}
-
-.flex-vert {
-    display: flex;
-    flex-direction: column;
 }
 
 .flex {

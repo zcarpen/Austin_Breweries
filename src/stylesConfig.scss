@@ -32,3 +32,17 @@ $breakpoint-phone: 450px;
     // height
 $breakpoint-short: 575px;
 $breakpoint-medium: 725px;
+
+
+// generic styles
+%ellipsis {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+%flex-vert {
+    display: flex;
+    flex-direction: column;
+}

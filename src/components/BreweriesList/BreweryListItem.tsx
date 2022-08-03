@@ -13,12 +13,12 @@ function BreweryListItem({brewery, cityState}: BLIProps) {
   const formattedPhone = formatPhone(phone)
 
   return (
-    <li className="list-container flex-vert">
-        <div className="brewery-title-type flex">
+    <li className="list-container">
+        <div className="brewery-title-type">
           <h3>{name}</h3>
           <p className={brewery_type}>{brewery_type}</p>
         </div>
-        <div className="brewery-details flex-vert">
+        <div className="brewery-details">
           <a 
             className="address" 
             target="_blank" 

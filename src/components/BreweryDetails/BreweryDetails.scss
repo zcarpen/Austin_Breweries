@@ -59,8 +59,7 @@ p {
 }
 
 .contact-details {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-vert;
     align-items: flex-start;
     width: 100%;
     font-size: styles.$M;
@@ -71,9 +70,11 @@ p {
         font-size: styles.$XL;
         margin: 0;
         text-align: start;
+        @extend %ellipsis;
     }
     
     a {
+        @extend %ellipsis;
         text-align: start;
         color: #fff;
         
