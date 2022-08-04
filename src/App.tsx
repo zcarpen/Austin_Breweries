@@ -1,49 +1,25 @@
 import {useEffect, useState, Fragment, useCallback} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import axios from 'axios';
 
 import './App.scss'
 import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
 import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
-import { formatNewBreweries } from './helperFunctions/helperFunctions';
+import { fetchBreweries } from './helperFunctions/helperFunctions';
+
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState<string[]>(['austin', 'texas'])
 
-  // const fetchBreweries = useCallback(() => {
-  //   try {
-  //     const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
-  //     const newBreweries = formatNewBreweries(result.data)
-      
-  //     setListOfBreweries(newBreweries)
-  //     setIsLoading(false)
-
-  //   } catch(err) {
-  //     setIsLoading(false) // if time permits, display an error
-
-  //   }
-  // }, [search])
+  const breweriesFetcher = useCallback(async () => {
+    fetchBreweries(search, setListOfBreweries, setIsLoading)
+  }, [search])
 
   useEffect(() => {
-    const fetchBreweries = async() => {
-      try {
-        const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
-        const newBreweries = formatNewBreweries(result.data)
-        
-        setListOfBreweries(newBreweries)
-        setIsLoading(false)
-
-      } catch(err) {
-        setIsLoading(false) // if time permits, display an error
-
-      }
-    }
-
-    fetchBreweries()
+    breweriesFetcher()
   }, [search])
 
   if (isLoading) return <div className="app loading">LOADING...</div> //keeps rest of app from loading and renders a message
