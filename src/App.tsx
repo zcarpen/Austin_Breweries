@@ -1,6 +1,5 @@
 import {useEffect, useState, Fragment, useCallback} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { fetchBreweries } from './helperFunctions/helperFunctions';
 import axios from 'axios';
 
 import './App.scss'
@@ -8,17 +7,20 @@ import { Brewery } from './types/brewery';
 import BreweriesList from './components/BreweriesList/BreweriesList';
 import BreweryDetails from './components/BreweryDetails/BreweryDetails';
 import Search from './components/Search/Search';
-import { formatNewBreweries } from './helperFunctions/helperFunctions';
+import { formatNewBreweries, fetchBreweries } from './helperFunctions/helperFunctions';
+
 
 function App() {
   const [listOfBreweries, setListOfBreweries] = useState<Brewery[]>([])
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState<string[]>(['austin', 'texas'])
 
-  const breweryFetcher = useCallback(fetchBreweries, [search])
+  const breweriesFetcher = useCallback(async () => {
+    fetchBreweries(search, setListOfBreweries, setIsLoading)
+  }, [search])
 
   useEffect(() => {
-    breweryFetcher(search, setListOfBreweries, setIsLoading)
+    breweriesFetcher()
   }, [search])
 
   if (isLoading) return <div className="app loading">LOADING...</div> //keeps rest of app from loading and renders a message
