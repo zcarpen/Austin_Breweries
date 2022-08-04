@@ -1,4 +1,6 @@
 import { Brewery } from '../types/brewery'
+import { useCallback } from 'react'
+import axios from 'axios'
 
 export const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1).toLowerCase()
 
@@ -63,4 +65,17 @@ export const formatNewBreweries = (breweries: Brewery[]) => {
       id
     }]
   }, [])
+}
+
+export const fetchBreweries = async (search: string[], setListOfBreweries: (breweries: Brewery[]) => void, setIsLoading: (isLoading: boolean) => void) => {
+  try {
+    const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
+    const newBreweries = formatNewBreweries(result.data)
+    
+    setListOfBreweries(newBreweries)
+    setIsLoading(false)
+
+  } catch(err) {
+    setIsLoading(false) // if time permits, display an error
+  }
 }

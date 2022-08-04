@@ -1,5 +1,6 @@
 import {useEffect, useState, Fragment, useCallback} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { fetchBreweries } from './helperFunctions/helperFunctions';
 import axios from 'axios';
 
 import './App.scss'
@@ -14,22 +15,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState<string[]>(['austin', 'texas'])
 
+  const breweryFetcher = useCallback(fetchBreweries, [search])
+
   useEffect(() => {
-    const fetchBreweries = async() => {
-      try {
-        const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
-        const newBreweries = formatNewBreweries(result.data)
-        
-        setListOfBreweries(newBreweries)
-        setIsLoading(false)
-
-      } catch(err) {
-        setIsLoading(false) // if time permits, display an error
-
-      }
-    }
-
-    fetchBreweries()
+    breweryFetcher(search, setListOfBreweries, setIsLoading)
   }, [search])
 
   if (isLoading) return <div className="app loading">LOADING...</div> //keeps rest of app from loading and renders a message
