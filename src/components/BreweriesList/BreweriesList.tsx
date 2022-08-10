@@ -3,7 +3,6 @@ import {useState} from 'react'
 import './BreweriesList.scss'
 import BreweryListItem from './BreweryListItem'
 import SearchError from '../SearchError/SearchError'
-import { BLProps } from '../../types/breweryListProps'
 import { Brewery } from '../../types/brewery'
 
 import {MdSort} from 'react-icons/md'
@@ -11,7 +10,7 @@ import {MdSort} from 'react-icons/md'
 
 
 
-const BreweriesList = ({listOfBreweries}: BLProps) => {
+const BreweriesList = ({listOfBreweries}: {listOfBreweries: Brewery[]}) => {
   const [sorted, setSorted] = useState(false)
   let sortedBreweries: Brewery[] = sorted === true ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
   
