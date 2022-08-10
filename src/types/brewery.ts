@@ -1,6 +1,7 @@
 export type Brewery = {
   street: string | null,
   postal_code: string | null,
+  city: string | null,
   state: string | null,
   country: string | null,
   phone: string | null,

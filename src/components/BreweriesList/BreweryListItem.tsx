@@ -6,9 +6,9 @@ import { BLIProps } from '../../types/breweryListItemProps'
 import { Pin, Arrow, LinkIcon, Phone } from '../IconHelper'
 import { formatPhone } from '../../helperFunctions/helperFunctions'
 
-function BreweryListItem({brewery, cityState}: BLIProps) {
-  const {name, brewery_type, state, street, postal_code, website_url, id, latitude, longitude, phone} = brewery
-  const address = formatAddress(street, state, postal_code, cityState)
+function BreweryListItem({brewery}: BLIProps) {
+  const {name, brewery_type, state, street, postal_code, city, website_url, id, latitude, longitude, phone} = brewery
+  const address = formatAddress(street, state, postal_code, city)
   const formattedPhone = formatPhone(phone)
 
   return (
@@ -35,7 +35,7 @@ function BreweryListItem({brewery, cityState}: BLIProps) {
               <div></div>}
             {latitude && longitude 
               ? 
-                <Link to={`/brewery-details/${id}/${cityState[0]}-${cityState[1]}`}>More Details 
+                <Link to={`/brewery-details/${id}/${city}-${state}`}>More Details 
                   <Arrow/>
                 </Link> 
               : 

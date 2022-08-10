@@ -11,7 +11,7 @@ import {MdSort} from 'react-icons/md'
 
 
 
-const BreweriesList = ({listOfBreweries, cityState}: BLProps) => {
+const BreweriesList = ({listOfBreweries}: BLProps) => {
   const [sorted, setSorted] = useState(false)
   let sortedBreweries: Brewery[] = sorted === true ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
   
@@ -31,7 +31,6 @@ const BreweriesList = ({listOfBreweries, cityState}: BLProps) => {
             <BreweryListItem 
               key={brewery.id} 
               brewery={brewery} 
-              cityState={cityState} 
             />
           ))}
         </ul> : 

@@ -13,13 +13,13 @@ export const formatCityState = (search: string[]) => {
   return capitolizedSearch
 }
 
-export const formatAddress = (street: string | null, state: string | null, zip: string | null, cityState: string[]) => {
-  const city = capitalizeFirstLetter(cityState[0])
+export const formatAddress = (street: string | null, state: string | null, zip: string | null, city: string | null) => {
+  // const city = capitalizeFirstLetter(cityState[0])
   const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : ''
 
-  state = state || capitalizeFirstLetter(cityState[1])
+  // state = state || capitalizeFirstLetter(cityState[1])
   
-  return `${street ? `${street.trim()}, ` : ''}${city.trim()}, ${state.trim()}${formattedZip}`
+  return `${street ? `${street.trim()}, ` : ''}${city?.trim()}, ${state?.trim()}${formattedZip}`
 }
 
 export const formatPhone = (phone: string | null) => {
@@ -36,10 +36,12 @@ export const formatPhone = (phone: string | null) => {
 
 //this function is used to reformat the list of breweries to only contain the information needed to run the application
 export const formatNewBreweries = (breweries: Brewery[]) => {
+  console.log(breweries)
   return breweries.reduce((breweries: Brewery[], brewery: Brewery) => {
     const {
       street,
       postal_code,
+      city,
       state,
       country,
       phone,
@@ -54,6 +56,7 @@ export const formatNewBreweries = (breweries: Brewery[]) => {
     return [...breweries, {
       street, 
       postal_code, 
+      city, 
       state, 
       country, 
       phone, 
