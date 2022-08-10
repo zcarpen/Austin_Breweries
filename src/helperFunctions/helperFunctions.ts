@@ -33,7 +33,6 @@ export const formatPhone = (phone: string | null) => {
 
 //this function is used to reformat the list of breweries to only contain the information needed to run the application
 export const formatNewBreweries = (breweries: Brewery[]) => {
-  console.log(breweries)
   return breweries.reduce((breweries: Brewery[], brewery: Brewery) => {
     const {
       street,
