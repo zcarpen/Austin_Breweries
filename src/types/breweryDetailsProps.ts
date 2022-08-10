@@ -1,6 +1,6 @@
 import { Brewery } from "./brewery";
 
-export interface BDProps {
+export interface BreweryDetailsProps {
     listOfBreweries: Brewery[],
     setSearch: (search: string[]) => void,
 }

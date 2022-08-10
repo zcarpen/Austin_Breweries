@@ -6,7 +6,7 @@ import { FcContacts } from 'react-icons/fc'
 import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
 import { LinkIcon, Pin, Phone } from '../IconHelper'
 import './BreweryDetails.scss'
-import { BDProps } from '../../types/breweryDetailsProps'
+import { BreweryDetailsProps } from '../../types/breweryDetailsProps'
 import { LatLngExpression } from 'leaflet'
 import { Brewery } from '../../types/brewery'
 
@@ -14,7 +14,7 @@ import { Brewery } from '../../types/brewery'
 
 
 
-function BreweryDetails({listOfBreweries, setSearch}: BDProps) {
+function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
   const {id, cityStateParams} = useParams() as {id: string, cityStateParams: string}
   const curParams = cityStateParams.split('-')
   
