@@ -19,7 +19,8 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
   const curParams = cityStateParams.split('-')
   
   useEffect(() => {
-    if (cityStateParams[0] !== 'austin') {
+    if (curParams[0].toLowerCase() !== 'austin' ) {
+      console.log(curParams)
       setSearch(curParams)  
     }
   } ,[])
