@@ -20,7 +20,6 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
   
   useEffect(() => {
     if (curParams[0].toLowerCase() !== 'austin' ) {
-      console.log(curParams)
       setSearch(curParams)  
     }
   } ,[])
