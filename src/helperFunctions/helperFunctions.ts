@@ -14,10 +14,7 @@ export const formatCityState = (search: string[]) => {
 }
 
 export const formatAddress = (street: string | null, state: string | null, zip: string | null, city: string | null) => {
-  // const city = capitalizeFirstLetter(cityState[0])
   const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : ''
-
-  // state = state || capitalizeFirstLetter(cityState[1])
   
   return `${street ? `${street.trim()}, ` : ''}${city?.trim()}, ${state?.trim()}${formattedZip}`
 }
