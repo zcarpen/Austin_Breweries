@@ -63,7 +63,7 @@ function BreweryDetails({listOfBreweries, setSearch}: BDProps) {
               }
           </div>
         </div>
-        {latitude && longitude && <div className="map-container">
+        <div className="map-container">
           <MapContainer 
             style={{height: "100%", width: "100%"}} 
             center={position} 
@@ -80,7 +80,7 @@ function BreweryDetails({listOfBreweries, setSearch}: BDProps) {
               </Popup>
             </Marker>
           </MapContainer>
-        </div>}
+        </div>
       </div>
     </Fragment>
   )

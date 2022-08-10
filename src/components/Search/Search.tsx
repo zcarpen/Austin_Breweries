@@ -24,7 +24,7 @@ function Search({currentSearch, setSearch}: SProps) {
         return;
       }
       const [city, state] = curSearch.split(',')
-      setSearch([city.toLowerCase(), state.trim().toLowerCase()])
+      setSearch([city.trim().toLowerCase(), state.trim().toLowerCase()])
     }
   
   return (
