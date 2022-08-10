@@ -1,5 +1,4 @@
 import { Brewery } from '../types/brewery'
-import { useCallback } from 'react'
 import axios from 'axios'
 
 export const capitalizeFirstLetter = (word: string) => word.split('')[0].toUpperCase() + word.slice(1).toLowerCase()

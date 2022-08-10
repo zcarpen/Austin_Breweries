@@ -24,8 +24,10 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
     }
   } ,[])
   
-  if (!listOfBreweries?.find(brewery => brewery.id === id)) return <></>
-  const {brewery_type, latitude, longitude, name, phone, postal_code, city, state, street, website_url} = listOfBreweries?.find(brewery => brewery.id === id) as Brewery
+  const selectedBrewery = listOfBreweries?.find(brewery => brewery.id === id)
+
+  if (!selectedBrewery) return <></>
+  const {brewery_type, latitude, longitude, name, phone, postal_code, city, state, street, website_url} = selectedBrewery as Brewery
   
   const position: LatLngExpression = [Number(latitude), Number(longitude)]
   const address = formatAddress(street, state, postal_code, city)
@@ -54,13 +56,12 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
                 <span>{formattedPhone}</span>
               </a>
             }
-            {
-            website_url && 
+            {website_url && 
               <a target="_blank" href={website_url}>
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a>
-              }
+            }
           </div>
         </div>
         <div className="map-container">
