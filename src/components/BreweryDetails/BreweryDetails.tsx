@@ -44,7 +44,7 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
           </div>
           <div className="contact-details">
             <h1>{name}</h1>
-            {address && 
+            {address &&
               <a target="_blank" href={`https://maps.google.com/?q=1200 ${address}`}>
                 <Pin/>
                 <span>{address}</span>
