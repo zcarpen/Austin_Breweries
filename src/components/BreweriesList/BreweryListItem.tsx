@@ -6,11 +6,22 @@ import { Pin, Arrow, LinkIcon, Phone } from '../IconHelper'
 import { formatPhone } from '../../helperFunctions/helperFunctions'
 import { Brewery } from '../../types/brewery'
 
-function BreweryListItem({brewery}: {brewery: Brewery}) {
-  const {name, brewery_type, state, street, postal_code, city, website_url, id, latitude, longitude, phone} = brewery
+function BreweryListItem({
+    name,
+    brewery_type,
+    state,
+    street,
+    postal_code,
+    city,
+    website_url, 
+    id,
+    latitude, 
+    longitude, 
+    phone
+}: Brewery) {
   const address = formatAddress(street, state, postal_code, city)
   const formattedPhone = formatPhone(phone)
-
+  
   return (
     <li className="list-container">
         <div className="brewery-title-type">

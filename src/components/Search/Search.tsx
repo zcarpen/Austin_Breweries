@@ -36,7 +36,12 @@ function Search({currentSearch, setSearch}: SearchProps) {
       <h1 className="title">Find Breweries Near You!</h1>
       <form className="search-bar" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="search-bar-value">Search By City:</label>
-        <input id="search-bar-value" placeholder="(City, State)" value={curSearch} onChange={handleSearch}/>
+        <input 
+          id="search-bar-value" 
+          placeholder="(City, State)" 
+          value={curSearch} 
+          onChange={handleSearch}
+        />
         <button type="submit">Search</button>
         
       </form>

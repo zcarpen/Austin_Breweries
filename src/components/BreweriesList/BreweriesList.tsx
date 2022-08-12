@@ -12,7 +12,9 @@ import {MdSort} from 'react-icons/md'
 
 const BreweriesList = ({listOfBreweries}: {listOfBreweries: Brewery[]}) => {
   const [sorted, setSorted] = useState(false)
-  let sortedBreweries: Brewery[] = sorted ? [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : listOfBreweries
+  let sortedBreweries: Brewery[] = sorted ? 
+    [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : 
+    listOfBreweries
   
   return (
     <div className="breweries-list-container">
@@ -29,7 +31,7 @@ const BreweriesList = ({listOfBreweries}: {listOfBreweries: Brewery[]}) => {
           {sortedBreweries.map(brewery => (
             <BreweryListItem 
               key={brewery.id} 
-              brewery={brewery} 
+              {...brewery} 
             />
           ))}
         </ul> : 

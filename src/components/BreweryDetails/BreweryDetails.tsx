@@ -10,10 +10,6 @@ import { BreweryDetailsProps } from '../../types/breweryDetailsProps'
 import { LatLngExpression } from 'leaflet'
 import { Brewery } from '../../types/brewery'
 
-
-
-
-
 function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
   const {id, cityStateParams} = useParams() as {id: string, cityStateParams: string}
   const curParams = cityStateParams.split('-')
@@ -26,9 +22,9 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
   
   const selectedBrewery = listOfBreweries?.find(brewery => brewery.id === id)
 
-  if (!selectedBrewery) return <></>
+  if (!selectedBrewery) return null;
+
   const {brewery_type, latitude, longitude, name, phone, postal_code, city, state, street, website_url} = selectedBrewery as Brewery
-  
   const position: LatLngExpression = [Number(latitude), Number(longitude)]
   const address = formatAddress(street, state, postal_code, city)
   const formattedPhone = formatPhone(phone)

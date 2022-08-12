@@ -12,10 +12,20 @@ export const formatCityState = (search: string[]) => {
   return capitolizedSearch
 }
 
-export const formatAddress = (street: string | null, state: string | null, zip: string | null, city: string | null) => {
-  const formattedZip = zip ? `, ${ zip.trim().slice(0, 5)}` : ''
+export const formatAddress = (
+  street: string | null, 
+  state: string | null, 
+  zip: string | null, 
+  city: string | null
+) => {
   
-  return `${street ? `${street.trim()}, ` : ''}${city?.trim()}, ${state?.trim()}${formattedZip}`
+  let address = '';
+  address += street ? `${street.trim()},` : ''
+  address += city ? ` ${city?.trim()}` : ''
+  address += state ? `, ${state?.trim()}` : ''
+  address += zip ? `, ${zip.trim().slice(0, 5)}` : ''
+  
+  return address;
 }
 
 export const formatPhone = (phone: string | null) => {
@@ -65,7 +75,11 @@ export const formatNewBreweries = (breweries: Brewery[]) => {
   }, [])
 }
 
-export const fetchBreweries = async (search: string[], setListOfBreweries: (breweries: Brewery[]) => void, setIsLoading: (isLoading: boolean) => void) => {
+export const fetchBreweries = async (
+    search: string[], 
+    setListOfBreweries: (breweries: Brewery[]) => void, 
+    setIsLoading: (isLoading: boolean) => void
+  ) => {
   try {
     const result = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${search[0]}&by_state=${search[1]}&per_page=50&sort=asc`);
     const newBreweries = formatNewBreweries(result.data)
