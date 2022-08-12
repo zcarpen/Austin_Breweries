@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 
 import './BreweriesList.scss'
 import BreweryListItem from './BreweryListItem'
@@ -12,7 +12,7 @@ import {MdSort} from 'react-icons/md'
 
 const BreweriesList = ({listOfBreweries}: {listOfBreweries: Brewery[]}) => {
   const [sorted, setSorted] = useState(false)
-  let sortedBreweries: Brewery[] = sorted ? 
+  const sortedBreweries: Brewery[] = sorted ? 
     [...listOfBreweries].sort((a: Brewery, b: Brewery) => a?.brewery_type.localeCompare(b?.brewery_type)) : 
     listOfBreweries
   

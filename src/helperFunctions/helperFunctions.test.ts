@@ -54,8 +54,8 @@ describe('formatAddress', () => {
     })
     
     it('should handle null state passing into the function', () => {
-        let overwrite = {state: null};
-        let testData = {...data, ...overwrite}
+        const overwrite = {state: null};
+        const testData = {...data, ...overwrite}
         const {street, state, postal_code, city} = testData
         const formattedAddress = formatAddress(street, state, postal_code, city)
     
@@ -63,8 +63,8 @@ describe('formatAddress', () => {
     })
 
     it('should handle null street passing into the function', () => {
-        let overwrite = {street: null};
-        let testData = {...data, ...overwrite}
+        const overwrite = {street: null};
+        const testData = {...data, ...overwrite}
         const {street, state, postal_code, city} = testData
         const formattedAddress = formatAddress(street, state, postal_code, city)
     
@@ -72,8 +72,8 @@ describe('formatAddress', () => {
     })
 
     it('should handle null postal passing into the function', () => {
-        let overwrite = {postal_code: null};
-        let testData = {...data, ...overwrite}
+        const overwrite = {postal_code: null};
+        const testData = {...data, ...overwrite}
         const {street, state, postal_code, city} = testData
         const formattedAddress = formatAddress(street, state, postal_code, city)
     

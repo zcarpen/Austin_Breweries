@@ -1,6 +1,6 @@
 import {Link, useParams} from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { FcContacts } from 'react-icons/fc'
 
 import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'
@@ -41,7 +41,7 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
           <div className="contact-details">
             <h1>{name}</h1>
             {address &&
-              <a target="_blank" href={`https://maps.google.com/?q=1200 ${address}`}>
+              <a target="_blank" rel="noreferrer" href={`https://maps.google.com/?q=1200 ${address}`}>
                 <Pin/>
                 <span>{address}</span>
               </a>
@@ -53,7 +53,7 @@ function BreweryDetails({listOfBreweries, setSearch}: BreweryDetailsProps) {
               </a>
             }
             {website_url && 
-              <a target="_blank" href={website_url}>
+              <a target="_blank" rel="noreferrer" href={website_url}>
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a>

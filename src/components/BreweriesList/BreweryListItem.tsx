@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import React from 'react';
 
 import './BreweryListItem.scss'
 import { formatAddress } from '../../helperFunctions/helperFunctions'
@@ -21,7 +22,7 @@ function BreweryListItem({
 }: Brewery) {
   const address = formatAddress(street, state, postal_code, city)
   const formattedPhone = formatPhone(phone)
-  
+
   return (
     <li className="list-container">
         <div className="brewery-title-type">
@@ -32,6 +33,7 @@ function BreweryListItem({
           <a 
             className="address" 
             target="_blank" 
+            rel="noreferrer"
             href={`https://maps.google.com/?q=1200 ${address}`}
           >
             < Pin />
@@ -39,7 +41,7 @@ function BreweryListItem({
           </a>
           <div className="website-details-container">
             {website_url ? 
-              <a target="_blank" href={website_url}>
+              <a target="_blank" href={website_url} rel="noreferrer">
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a> : 
