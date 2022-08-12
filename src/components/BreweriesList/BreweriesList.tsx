@@ -1,14 +1,10 @@
 import React, {useState} from 'react'
+import {MdSort} from 'react-icons/md'
 
 import './BreweriesList.scss'
 import BreweryListItem from './BreweryListItem'
 import SearchError from '../SearchError/SearchError'
 import { Brewery } from '../../types/brewery'
-
-import {MdSort} from 'react-icons/md'
-
-
-
 
 const BreweriesList = ({listOfBreweries}: {listOfBreweries: Brewery[]}) => {
   const [sorted, setSorted] = useState(false)

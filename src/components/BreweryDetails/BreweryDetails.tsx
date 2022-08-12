@@ -1,6 +1,6 @@
+import React, { Fragment, useEffect } from 'react'
 import {Link, useParams} from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import React, { Fragment, useEffect } from 'react'
 import { FcContacts } from 'react-icons/fc'
 
 import { formatAddress, formatPhone } from '../../helperFunctions/helperFunctions'

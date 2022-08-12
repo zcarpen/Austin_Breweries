@@ -33,4 +33,4 @@ export function useMemoizedFetch<T>(url: string) {
     }, [url]);
 
     return { status, data };
-};
+}

@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import './BreweryListItem.scss'
 import { formatAddress } from '../../helperFunctions/helperFunctions'
