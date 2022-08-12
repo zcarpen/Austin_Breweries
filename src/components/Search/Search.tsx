@@ -30,7 +30,7 @@ function Search({currentSearch, setSearch}: SearchProps) {
   return (
     <div className="search">
       {warning ? 
-        <p>Be sure to use `&quot;`city, state`&quot;`</p> :
+        <p>Be sure to use &quot;city, state&quot;</p> :
         <h2 className="location"><span>{`${city}, ${state}`}</span> Breweries</h2>
       }
       <h1 className="title">Find Breweries Near You!</h1>
