@@ -45,7 +45,7 @@ function BreweryListItem({
                 <LinkIcon/>
                 <span>{website_url}</span>
               </a> : 
-              <div></div>}
+              <div />}
             {latitude && longitude 
               ? 
                 <Link to={`/brewery-details/${id}/${city}-${state}`}>More Details 

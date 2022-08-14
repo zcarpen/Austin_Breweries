@@ -18,8 +18,10 @@ function Search({currentSearch, setSearch}: SearchProps) {
       if (curSearch.split(',').length !== 2) {
         setWarning(true)
         
-        setTimeout(() => {
+        const warningTimer = setTimeout(() => {
           setWarning(false)
+
+          clearTimeout(warningTimer)
         }, 2500)
         return;
       }
